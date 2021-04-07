@@ -1,0 +1,55 @@
+/*Aluna:Marcella Coelho Brito Nunes - Programacao Web - 04/04/2021*/
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="aparencia.css" />
+  <link
+    rel="stylesheet"
+    href="https://pt.m.wikipedia.org/wiki/Ficheiro:Google_%22G%22_Logo.svg"
+    type="icon"
+  />
+  <body>
+    <p id="demo"></p>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          trataXML(this);
+        }
+      };
+      xhttp.open("GET", "cadastro.xml", true);
+      xhttp.send();
+      function trataXML(p_xml) {
+        var xmlDoc = p_xml.responseXML,
+          txt = "";
+
+        vetClientes = xmlDoc.getElementsByTagName("cliente");
+
+        for (i = 0; i < vetClientes.length; i++) {
+          txt +=
+            "<p>" +
+            "<p class = 'img'><img src=" +
+            vetClientes[i].getElementsByTagName("foto")[0].childNodes[0]
+              .nodeValue +
+            " alt='Imagem'><br/></p>" +
+            "" +
+            "<br><p class = 'Dados1'>" +
+            vetClientes[i].getElementsByTagName("nome")[0].childNodes[0]
+              .nodeValue +
+            "  " +
+            vetClientes[i].getElementsByTagName("sobrenome")[0].childNodes[0]
+              .nodeValue +
+            "<br>" +
+            vetClientes[i].getElementsByTagName("telefone")[0].childNodes[0]
+              .nodeValue +
+            "</p>" +
+            "<br><p class = 'Dados2'><a href='https://www.furb.br/web/10/portugues'>" +
+            vetClientes[i].getElementsByTagName("email")[0].childNodes[0]
+              .nodeValue +
+            "</a>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      }
+    </script>
+    <script></script>
+  </body>
+</html>
