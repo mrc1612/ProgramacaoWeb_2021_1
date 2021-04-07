@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<biblioteca>
+    <cliente>
+        <nome>Kittie</nome>
+        <sobrenome>Patinkin</sobrenome>
+        <telefone>(669) 51644369</telefone>
+        <email>kpatinkin0@hhs.gov</email>
+        <foto>https://robohash.org/uteaaut.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Benoit</nome>
+        <sobrenome>Spreadbury</sobrenome>
+        <telefone>(453) 7529974</telefone>
+        <email>bspreadbury1@yolasite.com</email>    
+        <foto>https://robohash.org/vitaepraesentiumharum.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Dianna</nome>
+        <sobrenome>Boller</sobrenome>
+        <telefone>(740) 7599544</telefone>
+        <email>dboller2@whitehouse.gov</email>
+        <foto>https://robohash.org/excepturiarchitectoaliquid.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Traver</nome>
+        <sobrenome>Spraggon</sobrenome>
+        <telefone>(511) 1316929</telefone>
+        <email>tspraggon3@issuu.com</email>
+        <foto>https://robohash.org/autmollitiased.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+        <cliente>
+        <nome>Constantin</nome>
+        <sobrenome>Weathey</sobrenome>
+        <telefone>(496) 1889335</telefone>
+        <email>cweathey4@mozilla.com</email>
+        <foto>https://robohash.org/odioveroomnis.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Janey</nome>
+        <sobrenome>Minguet</sobrenome>
+        <telefone>(132) 4220195</telefone>
+        <email>jminguet5@google.ca</email>
+        <foto>https://robohash.org/odiocorruptinam.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Albertine</nome>
+        <sobrenome>Dawidowicz</sobrenome>
+        <telefone>(628) 3537517</telefone>
+        <email>adawidowicz6@omniture.com</email>
+        <foto>https://robohash.org/illumilloadipisci.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Whitney</nome>
+        <sobrenome>D'Aulby</sobrenome>
+        <telefone>(855) 5255713</telefone>
+        <email>wdaulby7@engadget.com</email>
+        <foto>https://robohash.org/architectoilloexcepturi.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Tiffy</nome>
+        <sobrenome>Dhennin</sobrenome>
+        <telefone>(713) 7795588</telefone>
+        <email>tdhennin8@last.fm</email>
+        <foto>https://robohash.org/aeaqueeum.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+    <cliente>
+        <nome>Berton</nome>
+        <sobrenome>Kippen</sobrenome>
+        <telefone>(244) 8796896</telefone>
+        <email>bkippen9@unblog.fr</email>
+        <foto>https://robohash.org/enimfugitfacilis.png?size=200x200&amp;set=set1</foto>
+    </cliente>
+</biblioteca>
