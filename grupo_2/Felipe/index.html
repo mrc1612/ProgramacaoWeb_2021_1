@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #demo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cliente {
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+    }
+
+    .cliente img {
+      background-color: black;
+      width: 250px;
+    }
+
+    .cliente p {
+      padding: 10px;
+      font-family: Arial;
+      text-align: center;
+    }
+
+    .cliente a {
+      padding: 10px;
+      font-family: Verdana;
+      background-color: gray;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo">
+  </div>
+
+  <script>
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        trataXML(this);
+      }
+    };
+
+    xhttp.open("GET", "cadastro.xml", true);
+    xhttp.send();
+
+    function trataXML(p_xml) {
+      let xmlDoc = p_xml.responseXML, txt = "";
+
+      let vetClientes = xmlDoc.getElementsByTagName("cliente");
+
+      for (i = 0; i < vetClientes.length; i++) {
+        txt += `
+          <div class="cliente">
+            <img src="${vetClientes[i].getElementsByTagName("foto")[0].childNodes[0]
+            .nodeValue}" alt="${vetClientes[i].getElementsByTagName("nome")[0].childNodes[0]
+              .nodeValue}">
+            <p>
+              ${vetClientes[i].getElementsByTagName("nome")[0].childNodes[0]
+            .nodeValue} ${vetClientes[i].getElementsByTagName("sobrenome")[0].childNodes[0]
+              .nodeValue}
+              <br>
+              ${vetClientes[i].getElementsByTagName("telefone")[0].childNodes[0]
+            .nodeValue}
+            </p>
+            <a>${vetClientes[i].getElementsByTagName("email")[0].childNodes[0]
+            .nodeValue}</a>
+          </div>
+          `
+      }
+
+      document.getElementById("demo").innerHTML = txt;
+    }
+  </script>
+</body>
+
+</html>
