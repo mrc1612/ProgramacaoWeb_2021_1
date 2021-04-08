@@ -1,0 +1,19 @@
+.Foto {
+  background-color: black;
+  width: 100%;
+}
+.Modelo {
+  text-align: center;
+  width: 250px;
+}
+.NomeCompletoEtelefone {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.email {
+  background-color: gray;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px;
+}
