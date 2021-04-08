@@ -1,0 +1,23 @@
+.userCard {
+  text-align: center;
+  width: 250px;
+  margin-bottom: 50px !important;
+}
+#foto {
+  width: 250px;
+  background-color: black;
+}
+#info {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#email {
+  padding: 10px;
+  color: blue;
+  text-decoration: underline;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
