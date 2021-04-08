@@ -1,6 +1,9 @@
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
   <body>
-    <p style="text-align: center; width: 250px;" id="demo"></p>
+    <p id="demo"></p>
     <script>
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
@@ -19,11 +22,11 @@
         vetClientes = xmlDoc.getElementsByTagName("cliente");
         for (i = 0; i < vetClientes.length; i++) {
           txt +=
-            "<p style='background-color: black;'><img src=" +
+            "<div id='cliente' ><div id='foto'><p style='foto'><img src=" +
             vetClientes[i].getElementsByTagName("foto")[0].childNodes[0]
               .nodeValue +
-            "></p>" +
-            "<p style='padding:0px 10px; font-family:Arial;'>" +
+            "></p></div>" +
+            "<div id='nome'><p style='padding:0px 10px; font-family:Arial;'>" +
             vetClientes[i].getElementsByTagName("nome")[0].childNodes[0]
               .nodeValue +
             " " +
@@ -32,14 +35,14 @@
             "</br>" +
             vetClientes[i].getElementsByTagName("telefone")[0].childNodes[0]
               .nodeValue +
-            "</p>" +
-            "<p style='padding:10px; font-family:Verdana; background-color: gray;'><a href='mailto:" +
+            "</p></div>" +
+            "<div id='email'><p style='padding:10px; font-family:Verdana; background-color: gray;'><a href='mailto:" +
             vetClientes[i].getElementsByTagName("email")[0].childNodes[0]
               .nodeValue +
             "' >" +
             vetClientes[i].getElementsByTagName("email")[0].childNodes[0]
               .nodeValue +
-            "</a></p>";
+            "</a></p></div></div>";
         }
         document.getElementById("demo").innerHTML = txt;
       }

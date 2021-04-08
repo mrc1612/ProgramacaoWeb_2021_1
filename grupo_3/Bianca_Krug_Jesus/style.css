@@ -1,0 +1,16 @@
+#cliente {
+  width: 250px;
+  text-align: center;
+}
+#foto {
+  background-color: black;
+}
+#nome {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#email {
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gray;
+}
