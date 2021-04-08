@@ -1,0 +1,24 @@
+#foto {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  background-color: black;
+  width: 100%;
+}
+
+.NomeSobrenomeTelefone {
+  font-family: Arial;
+  padding: 10px;
+  text-align: center;
+}
+
+#email {
+  background-color: gray;
+  font-family: Verdana;
+  padding: 10px;
+  text-align: center;
+}
