@@ -1,0 +1,21 @@
+.Main {
+    text-align: center;
+    width: 250px;
+  }
+  
+  .Name,
+  .Phone {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .Image {
+    background-color: black;
+    width: 100%;
+  }
+  
+  .Email {
+    background-color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+  }
+  
