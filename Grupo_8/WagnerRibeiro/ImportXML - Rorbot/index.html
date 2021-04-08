@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="folha.css" />
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Yi_ohdbmt0SEMIT-qEGOOUM1ETkrclZYAwUWgJ18Ea2fqwVx0kF7za_fgtCXbW5QOSNUOvZkkWFgL_gH13PW2X0c6wz6JtBzpBFUoShPxt5DdAf50vce_V_M_se8xy4JpKZNOxC-ZuAWIBsZWX6ouQ"
+      charset="UTF-8"
+    ></script>
+    <p id="demo"></p>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          trataXML(this);
+        }
+      };
+      xhttp.open("GET", "docxml.xml", true);
+      xhttp.send();
+      function trataXML(p_xml) {
+        var xmlDoc = p_xml.responseXML,
+          txt = "";
+        vetobj = xmlDoc.getElementsByTagName("cliente");
+        for (i = 0; i < vetobj.length; i++) {
+          txt +=
+            "<div id='formulario'><img src=" +
+            vetobj[i].getElementsByTagName("foto")[0].childNodes[0].nodeValue +
+            " alt='Robot'>" +
+            "<p id='dadosxml'>" +
+            "<strong>" +
+            vetobj[i].getElementsByTagName("nome")[0].childNodes[0].nodeValue +
+            " " +
+            vetobj[i].getElementsByTagName("sobrenome")[0].childNodes[0]
+              .nodeValue +
+            "<br>" +
+            vetobj[i].getElementsByTagName("telefone")[0].childNodes[0]
+              .nodeValue +
+            "</strong>" +
+            "</p>" +
+            "<p id='email'><a href='https://simulado.estacio.br/img/Hp/?'>" +
+            vetobj[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+            "</a>" +
+            "</p>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      }
+    </script>
+  </body>
+</html>

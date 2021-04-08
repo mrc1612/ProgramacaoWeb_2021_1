@@ -1,0 +1,16 @@
+img {
+  background-color: black;
+}
+#formulario {
+  width: 250px;
+  text-align: center;
+}
+#dadosxml {
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#email {
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gray;
+}
