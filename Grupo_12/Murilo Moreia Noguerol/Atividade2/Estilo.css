@@ -1,0 +1,32 @@
+Estilo.css
+ 
+
+img {
+  background-color: black;
+  width: 100%;
+}
+
+ 
+
+#Foto {
+  text-align: center;
+  width: 250px;
+  margin: 0px;
+}
+
+ 
+
+.telefoneEnome {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-weight: bold;
+  margin: 0;
+}
+
+ 
+
+#Email {
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: gray;
+}
