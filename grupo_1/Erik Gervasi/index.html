@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div id="content">
+      <p id="info"></p>
+    </div>
+    <script>
+      var xmlFile = new XMLHttpRequest();
+      xmlFile.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          trataXMLFile(this);
+        }
+      };
+      xmlFile.open("GET", "cadastro.xml", true);
+      xmlFile.send();
+
+      function trataXMLFile(xml) {
+        var xmlDoc = xml.responseXML,
+          txt = "";
+
+        vetClients = xmlDoc.getElementsByTagName("cliente");
+        for (i = 0; i < vetClients.length; i++) {
+          txt +=
+            "<img id='img' src=" +
+            vetClients[i].getElementsByTagName("foto")[0].childNodes[0]
+              .nodeValue +
+            "/><br>" +
+            "<p id='infos'>" +
+            vetClients[i].getElementsByTagName("nome")[0].childNodes[0]
+              .nodeValue +
+            " " +
+            vetClients[i].getElementsByTagName("sobrenome")[0].childNodes[0]
+              .nodeValue +
+            "<br>" +
+            vetClients[i].getElementsByTagName("telefone")[0].childNodes[0]
+              .nodeValue +
+            "</p>" +
+            "<p id='email'>" +
+            vetClients[i].getElementsByTagName("email")[0].childNodes[0]
+              .nodeValue +
+            "</p><br>";
+        }
+        document.getElementById("info").innerHTML = txt;
+      }
+    </script>
+  </body>
+</html>
