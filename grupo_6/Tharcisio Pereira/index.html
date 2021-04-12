@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          trataXML(this);
+        }
+      };
+      xhttp.open("GET", "clientes.xml", true);
+      xhttp.send();
+      function trataXML(p_xml) {
+        var xmlDoc = p_xml.responseXML,
+          txt = "";
+        vetClientes = xmlDoc.getElementsByTagName("cliente");
+        for (i = 0; i < vetClientes.length; i++) {
+          txt +=
+            "<div id='foto'><img src=" +
+            vetClientes[i].getElementsByTagName("foto")[0].childNodes[0]
+              .nodeValue +
+            " alt='foto'><br/>" +
+            "<p class='informacoes'>" +
+            vetClientes[i].getElementsByTagName("nome")[0].childNodes[0]
+              .nodeValue +
+            " " +
+            vetClientes[i].getElementsByTagName("sobrenome")[0].childNodes[0]
+              .nodeValue +
+            "<br/>" +
+            vetClientes[i].getElementsByTagName("telefone")[0].childNodes[0]
+              .nodeValue +
+            "</p>" +
+            "<p id='email'><a href='https://google.com.br'>" +
+            vetClientes[i].getElementsByTagName("email")[0].childNodes[0]
+              .nodeValue +
+            "</a></p>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      }
+    </script>
+  </body>
+</html>
