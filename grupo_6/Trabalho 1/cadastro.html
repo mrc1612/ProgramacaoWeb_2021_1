@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Cadastro</title>
+  </head>
+  <body>
+
+<header>
+  <nav class="navbar navbar-dark bg-dark justify-content-center">
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="index.html">
+          <img src="logo.png" alt="logo" class="rounded-circle" width="32" height="32">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" href="#">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Contatos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Sobre</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="cadastro.html">Cadastro</a>
+      </li>
+    </ul>
+  </nav>  
+</header>
+
+<br>
+
+<form class="needs-validation mx-auto" style="width: 1000px;" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">Primeiro nome</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="Nome" value="" required>
+      <div class="invalid-feedback">
+        Por favor, informe um nome válido.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom02">Sobrenome</label>
+      <input type="text" class="form-control" id="validationCustom02" placeholder="Sobrenome" value="" required>
+      <div class="invalid-feedback">
+        Por favor, informe um sobrenome válido.
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">Cidade</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required>
+      <div class="invalid-feedback">
+        Por favor, informe uma cidade válida.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Estado</label>
+      <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required>
+      <div class="invalid-feedback">
+        Por favor, informe um estado válido.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary " type="submit">Enviar</button>
+</form>
+
+<form class="needs-validation mx-auto">
+  
+
+<script>
+// Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+    var forms = document.getElementsByClassName('needs-validation');
+    // Faz um loop neles e evita o envio
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+  <footer>
+  	<nav class="navbar fixed-bottom justify-content-center navbar-dark bg-dark">
+ 		 <a class="navbar-brand text-white" href="#">Alunos: Guilherme dos Santos, Tharcisio Pereira, Thiago Schmitt </a>
+	 </nav>	
+  </footer>
+   
+  </body>
+</html>
