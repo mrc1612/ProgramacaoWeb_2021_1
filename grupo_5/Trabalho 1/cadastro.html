@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Css/cadastro.css">
+    <script src="./Código/script.js"></script>
+    <title>Telefonia</title>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <a href='pag1.html'>
+                <img src="./Imagens/Logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="menu" id="menu">
+            <div class='dropdown'>
+                Serviços
+                <div class="dropdown-content" id="dropdown-content">
+                    <div class="dropdownItem"><a>Internet</a></div>
+                    <div class="dropdownItem"><a>Telefone</a></div>
+                    <div class="dropdownItem"><a>Internet+Telefone</a></div>
+                </div>
+            </div>
+            <div class='item'><a>Locais</a></div>
+            <div class='item'><a>Contato</a></div>
+            <div class='item'><a href='./cadastro.html'>Cadastrar Clientes</a></div>
+        </div>
+        <div class="usuario" id="usuario">
+            <img src="./Imagens/Usuario.png" alt="Usuario">
+        </div>
+    </header>
+    <main>
+        <form>
+            <label for="nome">Nome Completo:</label><br>
+            <input type="text" id="nome" name="nome"><br>
+            <label for="cpf">CPF:</label><br>
+            <input type="text" id="cpf" name="cpf"><br>
+            <label for="contato">Contato:</label><br>
+            <input type="text" id="contato" name="contato"><br>
+            <label for="tipo_servico">Tipo de Serviço:</label><br>
+            <input type="text" id="tipo_servico" name="tipo_servico"><br><br>
+            <button type='button' onclick="cria()">Cadastrar</button>
+            <button type='button' onclick="edita()">Editar</button>
+            <button type='button' onclick="apaga()">Apagar</button>
+        </form>
+
+        <table id="table">
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Contato</th>
+                <th>Serviço</th>
+            </tr>
+        </table>
+    </main>
+</body>
+<footer>
+    <f1>João Henrique Cardoso Bragantino</f1>
+</footer>
+</html>
