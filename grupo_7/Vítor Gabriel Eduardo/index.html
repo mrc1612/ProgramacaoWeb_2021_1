@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://ava3.furb.br/pluginfile.php/671619/mod_resource/content/1/aula31032021_a.html -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          trataXML(this);
+        }
+      };
+      xhttp.open("GET", "cadastro.xml", true);
+      xhttp.send();
+      function trataXML(p_xml) {
+        var xmlDoc = p_xml.responseXML,
+          txt = "";
+        vetClientes = xmlDoc.getElementsByTagName("cliente");
+        for (i = 0; i < vetClientes.length; i++) {
+          txt +=
+            "<div id='div1' style='text-align: center; width: 250px;'>" +
+            		"<img id='foto' style='background-color: black;' src=" +
+           	 		vetClientes[i].getElementsByTagName("foto")[0].childNodes[0].nodeValue +
+            		"/>" +
+            		"<div style='padding: 10px; font-family:arial;'>" +
+										"<p>" +
+												vetClientes[i].getElementsByTagName("nome")[0].childNodes[0].nodeValue +
+												" " +
+												vetClientes[i].getElementsByTagName("sobrenome")[0].childNodes[0].nodeValue +
+												"<br>"+
+												vetClientes[i].getElementsByTagName("telefone")[0].childNodes[0].nodeValue +
+										"</p>" +
+								"</div>"+
+								"<p style='padding: 10px; font-family:verdana;background-color: gray;'>" +
+										"<a href='url' >"+
+												vetClientes[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+										"</a>" +
+								"</p>"+
+            "</div>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+      }
+    </script>
+  </body>
+</html>
