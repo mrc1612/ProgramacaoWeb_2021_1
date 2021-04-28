@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Lanchonete Web - Cadastro</title>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html"><span class="material-icons logo">fastfood</span></a>
+        <h1 class="nome">Lanchonete Web</h1>
+        <span class="material-icons user">account_circle</span>
+    </header>
+    <aside class="aside-cadastro">
+        <form class="form-cadastro" onsubmit="event.preventDefault();enviar();" autocomplete="off">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome_id">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone_id">
+            <label for="pedido">Pedido</label>
+            <input type="text" name="pedido" id="pedido_id">
+            <input id="submit" type="submit" value="Enviar">
+        </form>
+        <table id="table-crud">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Pedido</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+        </table>
+    </aside>
+    <footer class="footer">
+        <p id="nomes">Gustavo Poffo, Lucas Serodio e Vítor Eduardo</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
