@@ -1,0 +1,138 @@
+/* Header Section */
+
+.navbar-header {
+    background: var(--color-background);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-header ul {
+    display: flex;
+    height: 12vh;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+    z-index: 999;
+}
+
+.navbar-header ul li {
+    margin: 20px;
+}
+
+/* Logo Section */
+
+.logo {
+    margin: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    color: var(--color-font-primary);
+}
+
+.logo icon {
+    height: 30px;
+    width: 30px;
+}
+
+.logo icon svg {
+    height: 100%;
+    width: 100%;
+}
+
+.logo icon:hover {
+    color: var(--color-font-primary-shadow);
+}
+
+/* Menu Section */
+
+.menu-items a {
+    color: var(--color-font-primary);
+    font-size: 1.2rem;
+}
+
+.menu-items a:hover {
+    border-bottom: 2px solid var(--color-font-primary);
+    color: var(--color-font-primary-shadow);
+}
+
+/* User Section - Icon */
+
+.user ul {
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 12vw;
+    height: 150%;
+}
+
+.user-image {
+    color: var(--color-font-primary);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.user-image:hover {
+    color: var(--color-font-primary-shadow);
+}
+
+/* User Section - Menu */
+
+.link-menu {
+    margin: 0;
+    
+    right: 10px;
+    top: -200%;
+    z-index: 1;    
+
+    transition: all .3s ease;
+
+    background-color: var(--color-background);;
+    color: var(--color-font-primary);
+}
+
+.link-menu.active {
+    transition: all .3s ease;
+    top: 13vh;
+}
+
+.link-menu a {
+    color: var(--color-font-primary);
+    font-size: 1.2rem;
+}
+
+.link-menu a:hover {
+    color: var(--color-font-primary-shadow);
+    border-bottom: 2px solid var(--color-font-primary);
+}
+
+.link-menu.active li {
+    margin: 10px;
+}
+
+.link-menu button, .link-menu.active button {
+    position: absolute;
+    
+    top: 4px;
+    right: 4px;
+
+    background: transparent;
+    color: var(--color-font-primary);
+    
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.link-menu button:hover, .link-menu.active button:hover {
+    color: var(--color-font-primary-shadow);
+    border-bottom: 2px solid var(--color-font-primary);
+}
+
+

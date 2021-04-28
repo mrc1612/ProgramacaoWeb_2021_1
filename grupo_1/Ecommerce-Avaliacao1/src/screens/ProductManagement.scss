@@ -1,0 +1,116 @@
+.product-management-content {
+    height: 100%;
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 15vh;
+    justify-content: space-around;
+    
+    padding: 3rem 0 5rem 0rem;
+ 
+    margin-left: auto;
+    margin-right: auto;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;        
+        background-image: linear-gradient(to top, rgb(146, 143, 143), #242424);
+        border-radius: 10px;
+        width: 80%;
+        height: 110%;
+    }
+
+    label {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+    }
+    
+    input {
+        height: 3vh;
+    }
+
+    textarea {
+        height: 15vh;
+        resize: none;
+    }
+       
+    h3 {
+        font-size: 1rem;
+        margin-left: 6.5%;
+        color: rgb(255, 255, 255);
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+
+        font-size: 1.2rem;
+        font-family: Roboto, sans-serif;
+
+        outline: none;
+        border: none;
+        cursor: pointer;
+
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+
+        margin-left: 6.5%;
+
+        &:focus {
+            border-left: 2px solid var(--color-font-secondary);
+        }
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+
+    // Botão
+
+    input[type="submit"] {
+        margin-top: 20px;
+        width: 10vw;
+        height: 8vh;
+        border: none;
+        font-size: 1.3rem;
+        background-color: rgb(80,79,79);
+        color: white;
+    }
+
+    img {
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        margin: auto;
+    }
+
+    
+}
+
+.back-to-products-btn {
+    margin: 10px;
+    height: 1rem;
+    width: 5vw;
+
+    position: fixed;
+
+    font-size: 1.5rem;
+    outline: none;
+    border: none;
+
+    background: transparent;
+    cursor: pointer;
+    
+    a {
+        color: var(--color-font-secondary);
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
