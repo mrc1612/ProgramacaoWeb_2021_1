@@ -78,6 +78,13 @@ a:focus {
     }
 }
 
+@media (min-width: 992px) {
+    .img-integrantes {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 /**********************************/
 /********** Top Bar CSS ***********/
 /**********************************/
@@ -286,11 +293,12 @@ a:focus {
     font-size: 16px;
 }
 
+
 .about .about-text a.btn {
     position: relative;
     margin-top: 15px;
     padding: 15px 35px;
-    font-size: 16px;
+    font-size: 26px;
     font-weight: 500;
     letter-spacing: 1px;
     color: #030f27;
@@ -318,7 +326,7 @@ a:focus {
 .footer {
     position: relative;
     margin-top: 45px;
-    padding-top: 90px;
+    padding-top: 20px;
     background: #030f27;
     color: #ffffff;
 }
@@ -328,7 +336,7 @@ a:focus {
 .footer .footer-link,
 .footer .newsletter {
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: 15px;
 }
 
 .footer h2 {
@@ -511,6 +519,11 @@ a:focus {
         background-position: left bottom;
         min-height: 450px;
     }
+
+    .about .about-text p {
+        font-size: 26px;
+    }
+    
 }
 
 
