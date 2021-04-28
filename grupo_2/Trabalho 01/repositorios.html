@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Repositórios</title>
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
+  <link rel="stylesheet" href="./styles/estilos.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/sidebar.css">
+  <link rel="stylesheet" href="./styles/modal.css">
+  <link rel="stylesheet" href="./styles/rodape.css">
+  <script type="text/javascript" src="./scripts/script.js"></script>
+  <script type="text/javascript" src="./scripts/responsive.js"></script>
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="header-buttons">
+      <img src="./imagens/bars.png" class="bars" onclick="showMenu()">
+      <a class="logo">
+        <img class="img" src="./imagens/github.png">
+      </a>
+    </div>
+    
+    <a class="perfil" href="pagina-inicial.html">
+      <img class="foto" src="./imagens/user2.jpg">
+    </a>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li>
+        <a href="./pagina-inicial.html">
+          <div class="item">Voltar</div>
+        </a>
+      </li>
+  </nav>
+
+  <main id="main">
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-lg-4">
+            <input type="text" id="campo-1" class="form-control" placeholder="Nome do usuário">
+          </div>
+          <div class="col-sm-12 col-lg-4">
+            <input type="text" id="campo-2" class="form-control" placeholder="Nome do repositório">
+          </div>
+          <div class="col-sm-12 col-lg-4">
+            <input type="text" id="campo-3" class="form-control" placeholder="Link do repositório">
+          </div>
+          <div class="col-sm-12">
+            <button type="text" onclick="cadastrar()" id="btn-cadastrar" class="btn btn-secondary">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <table class="table" id="tabela-itens">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center">Nome do usuário</th>
+            <th scope="col" class="text-center">Nome do repositório</th>
+            <th scope="col" class="text-center">Link do repositório</th>
+            <th scope="col" class="text-center">Alterar</th>
+            <th scope="col" class="text-center">Excluir</th>
+          </tr>
+        </thead>
+      </table>
+    </section>
+  </main>
+
+  <div id="modal-id" class="background-modal">
+    <div class="modal-class">
+      <p id="alterar"></p>
+      <h2 class="titulo">Alterar Cadastro</h2>
+      <input type="text" id="campo-alterar-1" class="form-control" placeholder="Nome do usuário">
+      <input type="text" id="campo-alterar-2" class="form-control" placeholder="Nome do repositório">
+      <input type="text" id="campo-alterar-3" class="form-control" placeholder="Link do repositório">
+      <div class="robertinho">
+        <button type='button' onclick="cancelarModal()" class='btn btn-secondary'>Cancelar</button>
+        <button type='button' onclick="alterarModal()" class='btn btn-warning'>Alterar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="rodape">Felipe, Jennyfer e Pablo</footer>
+
+</body>
+
+</html>
