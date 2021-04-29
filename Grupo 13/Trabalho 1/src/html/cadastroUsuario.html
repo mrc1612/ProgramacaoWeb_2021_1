@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/paginas/cadastroUsuario.css" />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <header>
+      <a href="./index.html">
+        <img
+          src="https://blog.agencialabra.com.br/wp-content/uploads/2019/09/starbucks-logotipo-300x300.png"
+          alt="Logo"
+        />
+      </a>
+
+      <img
+        src="https://images.vexels.com/media/users/3/135247/isolated/preview/e70a6296c2a79dc7a56ab05b103f38e8-sinal-do-usu-aacute-rio-com-fundo-by-vexels.png"
+        alt="Usuário"
+      />
+    </header>
+
+    <main>
+      <section id="primeira-section">
+        <form>
+          <input id="idade" type="number" placeholder="Sua Idade" required />
+          <input id="nome" type="text" placeholder="Seu Nome" required />
+          <input
+            id="dataNascimento"
+            type="date"
+            placeholder="Data de nascimento"
+            required
+          />
+          <button id="submitButton" type="submit">Enviar</button>
+        </form>
+
+        <div id="tabela"></div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>@ 2021 Maik Henrique Carminati</h3>
+    </footer>
+
+    <script src="../js/tabela.js"></script>
+  </body>
+</html>

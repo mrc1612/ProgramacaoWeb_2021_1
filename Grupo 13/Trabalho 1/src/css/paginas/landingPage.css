@@ -1,0 +1,51 @@
+main {
+  margin: 66px 0 0 0;
+}
+
+main #primeira-section {
+  height: 80vh;
+
+  background-color: var(--section);
+}
+
+main #primeira-section #menu {
+  padding: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 300;
+}
+
+main #primeira-section #menu ul {
+  display: flex;
+}
+
+main #primeira-section #menu ul li {
+  margin: 0 12px;
+  padding: 8px;
+
+  border: none;
+  border-radius: 6px;
+}
+
+main #primeira-section #menu ul li:hover {
+  background-color: #284b63;
+}
+
+main #primeira-section #menu ul li #sub-menu {
+  display: none;
+  position: absolute; /* Faz com que ocupe os 126px */
+  width: 126px;
+}
+
+main #primeira-section #menu ul li:hover #sub-menu {
+  display: block; /* Mostra os sub-items */
+}
+
+main #primeira-section #menu ul li #sub-menu li:hover {
+  background-color: #284b63;
+}
