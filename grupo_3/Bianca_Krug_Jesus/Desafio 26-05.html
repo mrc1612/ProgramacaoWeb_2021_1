@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            Parabéns! Agora <a href='http://bu.furb.br/mcardoso/progWeb/finaliza.php?acao=finalizaABC123' target='_blank'>clique aqui</a> para a etapa final!
+        </div>
+        <script>
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('myCtrl', function($scope, $http) {
+			 $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro")
+            .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+            $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/101")
+            .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+            $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80")
+            .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+            $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80", 
+                {"nome": "OLHE AQUI!", 
+				"departamento": "PRÓXIMO PASSO", 
+				"endereco": "Requisição GET na URI '/cadastro/'+codigo retorna um funcionário",
+                "email": "CÓDIGO ERRADO PARA SEGUIR!"})
+            .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+            });
+        </script>
+    </body>
+</html>
