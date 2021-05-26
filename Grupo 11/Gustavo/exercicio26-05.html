@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <a href='http://bu.furb.br/mcardoso/progWeb/finaliza.php?acao=finalizaABC123' target='_blank'>clique aqui</a>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <p ng-bind-html="infoFunc.usuario"></p>
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="info in infoFunc">
+                    <td ng-bind-html="info.id"></td>
+                    <td ng-bind-html="info.nome"></td>
+                    <td ng-bind-html="info.email"></td>
+                    <td ng-bind-html="info.endereco"></td>
+                    <td ng-bind-html="info.departamento"></td>
+                </tr>
+            </table>
+        </div>
+        
+        <script>
+            //Só fui alterando o endereço aqui
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('myCtrl', function($scope, $http) {
+                var data = {
+                    nome:"O brabo tem nome: Gustavo Henrique",
+                    email:"ghkistner@furb.br",
+                    endereco:"Meu barraco",
+                    departamento:"BCC dos quebra"
+                }
+              $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80", JSON.stringify(data))
+              .then(function(response) {
+                  $scope.infoFunc = response.data;
+                  console.log(response.data);
+              });
+            });
+        </script>
+    </body>
+</html>
