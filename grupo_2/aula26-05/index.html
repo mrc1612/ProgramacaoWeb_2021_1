@@ -1,0 +1,71 @@
+<!-- Felipe, Jennyfer, Pablo -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>/cadastro</p>
+  <div class="pessoas"></div>
+  <hr>
+  <p>/cadastro/10</p>
+  <div class="pessoa"></div>
+
+  <script>
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        getCadastros(this);
+      }
+    };
+
+    xhttp.open("GET", "https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro", true);
+    xhttp.send();
+
+    let xhttp2 = new XMLHttpRequest();
+
+    xhttp2.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        getCadastroPessoaUnica(this);
+      }
+    };
+
+    xhttp2.open("GET", "https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/10", true);
+    xhttp2.send();
+
+    function getCadastros(response) {
+      let cadastrosJSON = xhttp.responseText
+
+      let cadastros = JSON.parse(cadastrosJSON)
+
+      let pessoas = document.querySelector(".pessoas")
+
+
+      for (i = 0; i < cadastros.length; i++) {
+        pessoas.innerHTML += cadastros[i].nome + ", "
+      }
+    }
+
+    function getCadastroPessoaUnica(response) {
+      let cadastroJSON = xhttp2.responseText
+
+      let cadastro = JSON.parse(cadastroJSON)
+
+      let pessoa = document.querySelector(".pessoa")
+
+
+      pessoa.innerHTML = cadastro.nome
+    }
+
+
+  </script>
+</body>
+
+</html>
