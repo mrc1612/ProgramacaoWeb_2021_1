@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Intera&ccedil;&atilde;o com API REST</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table class="table table-dark table-bordered table-striped">
+            <tr>
+                <td ng-bind-html="info.status"></td>
+                <td ng-bind-html="info.id"></td>
+                <td ng-bind-html="info.nome"></td>
+                <td ng-bind-html="info.departamento"></td>
+                <td ng-bind-html="info.endereco"></td>
+                <td><a href="mailto:{{info.email}}">{{info.email}}</a></td>
+            </tr>
+        </table>
+    <script>
+        var app = angular.module('myApp', ['ngSanitize']);
+        app.controller('myCtrl', function($scope, $http) {
+          $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80")
+          .then(function(response) {
+              $scope.info = response.data;
+          });
+        });
+    </script>
+</body>
+</html>
