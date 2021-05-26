@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td ng-bind-html="info.status"></td>
+            </tr>
+        </table>
+        <script>
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('myCtrl', function ($scope, $http) {
+                $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/", {
+                    "nome": "OLHE AQUI!",
+                    "departamento": "PRÓXIMO PASSO",
+                    "endereco": "Requisição GET na URI '/cadastro/'+codigo retorna um funcionário",
+                    "email": "CÓDIGO ERRADO PARA SEGUIR!"
+                })
+                    .then(function (response) {
+                        $scope.info = response.data;
+                    });
+            });
+        </script>
+</body>
+
+</html>
