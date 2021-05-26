@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p ng-bind-html="infoFunc.usuario"></p>
+        <table class="table table-bordered table-striped">
+            <tr ng-repeat="obra in infoFunc.livros">
+                <td ng-bind-html="obra.titulo"></td>
+                Parabéns! Agora <a href='http://bu.furb.br/mcardoso/progWeb/finaliza.php?acao=finalizaABC123'
+                    target='_blank'>clique aqui</a> para a etapa final!
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = angular.module('myApp', ['ngSanitize']);
+        app.controller('myCtrl', function ($scope, $http) {
+            $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro")
+                .then(function (response) {
+                    $scope.infoFunc = response.data;
+                    console.log(response);
+                });
+
+            $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/1011")
+                .then(function (response) {
+                    $scope.infoFunc = response.data;
+                    console.log(response);
+                });
+
+            $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80")
+                .then(function (response) {
+                    $scope.infoFunc = response.data;
+                    console.log(response);
+                });
+
+            $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro",
+                {
+                    "nome": "OLHE AQUI!", "departamento": "PRÓXIMO PASSO", "endereco": "Requisição GET na URI '/cadastro/'+codigo retorna um funcionário",
+                    "email": "CÓDIGO ERRADO PARA SEGUIR!"
+                })
+                .then(function (response) {
+                    $scope.infoFunc = response.data;
+                    console.log(response);
+                });
+        });
+    </script>
+</body>
+
+</html>
