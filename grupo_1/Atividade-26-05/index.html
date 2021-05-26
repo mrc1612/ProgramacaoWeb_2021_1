@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 26/05/2021</title>
+</head>
+<body>
+
+<script>
+    /**
+     * Grupo:
+     *
+     * @author Daniel Busarello
+     * @author Erik Luiz Gervasi
+     * @author Leonardo de Oliveira
+     */
+
+    function reqPasso1() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro", {
+            "body": null,
+            "method": "GET"
+        }).then(res => res.json())
+    }
+
+    function reqPasso2() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/999", {
+            "body": null,
+            "method": "GET"
+        }).then(res => res.json())
+    }
+
+    function reqPasso3() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80", {
+            "body": null,
+            "method": "DELETE"
+        }).then(res => res.json())
+    }
+
+    function reqPasso4() {
+        const body = {
+            nome: 'Algum nome',
+            departamento: 'BCC',
+            endereco: 'Alguma rua',
+            email: 'algumemail@gmail.com'
+        }
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/", {
+            "body": JSON.stringify(body),
+            "method": "PUT"
+        }).then(res => res.json())
+    }
+
+    async function start() {
+        const body = document.getElementById('content')
+
+        const passo1 = await reqPasso1()
+        const content1 = passo1.find(x => x.id === 80)
+
+        body.innerHTML += "<h1>Passo 1:</h1>"
+        body.innerHTML += JSON.stringify(content1)
+
+        const passo2 = await reqPasso2()
+
+        body.innerHTML += "<h1>Passo 2:</h1>"
+        body.innerHTML += JSON.stringify(JSON.stringify(passo2))
+
+        const passo3 = await reqPasso3()
+
+        body.innerHTML += "<h1>Passo 3:</h1>"
+        body.innerHTML += JSON.stringify(JSON.stringify(passo3))
+
+        const passo4 = await reqPasso4()
+
+        body.innerHTML += "<h1>Passo 4:</h1>"
+        body.innerHTML += JSON.stringify(JSON.stringify(passo4))
+    }
+
+</script>
+
+<button onclick="start()">Iniciar</button>
+
+<div id="content"></div>
+
+</body>
+</html>
