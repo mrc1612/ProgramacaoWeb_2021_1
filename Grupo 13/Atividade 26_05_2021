@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <input type="text" ng-model="idFunc" autofocus>
+            <button ng-click="pesqFunc()">GET</button>
+            <p>{{funcionario.id + ' - ' + funcionario.nome + ' - ' + funcionario.departamento + ' - ' + funcionario.endereco + ' - ' + funcionario.email}}</p>
+            <input type="text" ng-model="deletarFunc" autofocus>
+            <button ng-click="delFunc()">DELETE</button>
+            <p>{{deletarfun.status}}</p>
+            <input type="text" ng-model="putFun" autofocus>
+            <button ng-click="putFunc()">PUT</button>
+            <p>{{putfun.status}}</p>
+            <a href='http://bu.furb.br/mcardoso/progWeb/finaliza.php?acao=finalizaABC123' target='_blank'>clique aqui</a>
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="func in infoFunc">
+                    <td ng-bind-html="func.id"></td>
+                    <td ng-bind-html="func.nome"></td>
+                    <td ng-bind-html="func.departamento"></td>
+                    <td ng-bind-html="func.endereco"></td>
+                    <td ng-bind-html="func.email"></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('myCtrl', function($scope, $http) {
+              $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro")
+              .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+              $scope.pesqFunc = function() {
+                $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idFunc) 
+                .then(function(response) {
+                  $scope.funcionario = response.data;
+              });};
+              $scope.delFunc = function() {
+                $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idFunc) 
+                .then(function(response) {
+                  $scope.deletarfun = response.data;
+              });};
+              $scope.putFunc = function() {
+                $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/",{"nome":"Nevil Pyke","departamento":"Training","endereco":"95085 Muir Drive","email":"npyke2e@google.com.br"}) 
+                .then(function(response) {
+                  $scope.putfun = response.data;
+              });};
+            });
+        </script>
+    </body>
+</html>
