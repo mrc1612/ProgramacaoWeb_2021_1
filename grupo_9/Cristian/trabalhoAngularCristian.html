@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <p>
+                <input type="text" ng-model="idfunc" autofocus>
+                <button ng-click="pesFunc()">Pesquisa</button>
+                <button ng-click="delFunc()">Deleta</button>
+            </p>
+          <p>
+              {{funcionario.id+' - '+funcionario.nome+' - '+funcionario.departamento+' - '+funcionario.endereco+'  - '+funcionario.email}}
+          </p>
+          <p ng-bind-html="funcionario.status"></p>
+          <p>
+            <input type="text" ng-model="funcName" >
+            <input type="text" ng-model="funcDepartamento" >
+            <input type="text" ng-model="funcEndereco" >
+            <input type="text" ng-model="funcEmail">
+            <button ng-click="putFunc()">Insere</button>
+        </p>
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="funcao in infofunc">
+                    <td ng-bind-html="funcao.id"></td>
+                    <td ng-bind-html="funcao.nome"></td>
+                    <td ng-bind-html="funcao.departamento"></td>
+                    <td ng-bind-html="funcao.endereco"></td>
+                    <td ng-bind-html="funcao.email"></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+			var app = angular.module('myApp', ['ngSanitize']);
+			app.controller('myCtrl', function($scope, $http) {
+				$http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/")
+				.then(function(response) {
+					$scope.infofunc = response.data;
+				});
+				
+				$scope.pesFunc = function(){
+					$http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idfunc)
+					.then(function(response) {
+						$scope.funcionario = response.data; 
+					}); 
+				};
+				$scope.delFunc = function(){
+					$http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idfunc)
+					.then(function(response) {
+						$scope.funcionario = response.data; 
+					}); 
+				};
+				
+				$scope.putFunc = function(){
+					const json = { nome: $scope.funcName, departamento: $scope.funcDepartamento, endereco: $scope.funcEndereco, email: $scope.funcEmail};
+					$http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/",json)
+					.then(function(response) {
+						$scope.funcionario = response.data; 
+					}); 
+				};
+			});
+        </script>
+    </body>
+</html>
