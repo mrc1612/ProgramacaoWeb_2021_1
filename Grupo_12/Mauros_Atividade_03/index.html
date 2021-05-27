@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="Funcionarioslistagem">
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="funcionario in funcionarios">
+                    <td ng-bind-html="funcionario.id"></td>
+                    <td ng-bind-html="funcionario.nome"></td>
+                    <td ng-bind-html="funcionario.departamento"></td>
+                    <td ng-bind-html="funcionario.endereco"></td>
+                    <td ng-bind-html="funcionario.email"></td>
+                </tr>
+            </table> 
+        </div>
+        <div ng-controller="listagemIncorretaFuncionario">
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="funcionarioErrado.id"></td>
+                <td ng-bind-html="funcionarioErrado.nome"></td>
+                <td ng-bind-html="funcionarioErrado.departamento"></td>
+                <td ng-bind-html="funcionarioErrado.endereco"></td>
+                <td ng-bind-html="funcionarioErrado.email"></td>
+            </table> 
+        </div>
+        <div ng-controller="ExclusaoFuncionario">
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="ExclusaoFuncionario.status"></td>
+            </table> 
+        </div>
+        <div ng-controller="putNewFuncionario">
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="putNewFuncionario.status"></td>
+            </table> 
+        </div>
+        <script>
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('Funcionarioslistagem', function($scope, $http) {
+              $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro")
+              .then(function(response) {
+                  $scope.funcionarios = response.data;
+              });
+            });
+            app.controller('listagemIncorretaFuncionario', function($scope, $http) {
+              $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/0")
+              .then(function(response) {
+                  $scope.funcionarioErrado = response.data;
+              });
+            });
+            app.controller('ExclusaoFuncionario', function($scope, $http) {
+              $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80")
+              .then(function(response) {
+                  $scope.ExclusaoFuncionario = response.data;
+              });
+            })
+            var funcionario = { nome: 'Carlos', departamento: 'Engenharia', endereco: 'Blumenau/SC', email: 'CarlosSouza123@outlook.com' };
+            app.controller('putNewFuncionario', function($scope, $http) {
+              $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro", funcionario)
+              .then(function(response) {
+                  $scope.putNewFuncionario = response.data;
+              });
+            });
+        </script>
+    </body>
+</html>
