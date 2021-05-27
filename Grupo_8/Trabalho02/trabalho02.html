@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabalho 02 - Vinicius Silveira, Wagner Ribeiro, Jéssica Rodrigues</title>
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=T__mYWBKm6JO-qCnHrxrg1eh0OkP6Dpbj31Q93V94kKeN-xxbH5RzRFAOwfWdMD17aFyjezDMrDtj-ntUHensg" charset="UTF-8"></script></head>
+<body>
+
+<script>
+    function requisicao1() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro", {
+            "body": null,
+            "method": "GET"
+        })
+            .then(requisicao => requisicao.json())
+    }
+
+    function requisicao2() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/999", {
+            "body": null,
+            "method": "GET"
+        })
+            .then(requisicao => requisicao.json())
+    }
+
+    function requisicao3() {
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80", {
+            "body": null,
+            "method": "DELETE"
+        })
+            .then(requisicao => requisicao.json())
+    }
+    function requisicao4() {
+        const body = {
+            nome: 'Francisco Pereira Alves Da Silva Nogueira',
+            departamento: 'Cozinha',
+            endereco: 'São Paulo 517',
+            email: 'FranciscoSilvaNogueira@Cozinhafeliz.com.br'
+        }
+        return fetch("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/", {
+            "body": JSON.stringify(body),
+            "method": "PUT"
+        })
+            .then(requisicao => requisicao.json())
+    }
+    async function start01() {
+        const body = document.getElementById('content')
+
+        const start01 = await requisicao1()
+        const content1 = start01.find(x => x.id === 80)
+
+        body.innerHTML += "<p>1º passo:</p>"
+        body.innerHTML += JSON.stringify(content1)
+        body.innerHTML += "<br>"+"<br>"
+        body.innerHTML += "<button onclick='this.disabled = true;start02()'>Passo 2</button>"
+    }
+
+    async function start02() {
+        const body = document.getElementById('content')
+
+        const start02 = await requisicao2()
+
+        body.innerHTML += "<p>2º passo:</p>"
+        body.innerHTML += JSON.stringify(JSON.stringify(start02))
+        
+        body.innerHTML += "<br>"+"<br>"
+        body.innerHTML += "<button onclick='this.disabled = true;start03()'>Passo 3</button>"
+    }
+
+    async function start03() {
+        const body = document.getElementById('content')
+
+        const start03 = await requisicao3()
+
+        body.innerHTML += "<p>3º passo:</p>"
+        body.innerHTML += JSON.stringify(JSON.stringify(start03))
+
+        body.innerHTML += "<br>"+"<br>"
+        body.innerHTML += "<button onclick='this.disabled = true;start04()'>Passo 4</button>"
+
+    }
+
+    async function start04() {
+        const body = document.getElementById('content')
+        const start04 = await requisicao4()
+
+        body.innerHTML += "<p>4º passo:</p>"
+        body.innerHTML += JSON.stringify(JSON.stringify(start04))
+        }
+
+</script>
+
+<button onclick="this.disabled = true;start01()">Vamos lá</button>
+
+<div id="content"></div>
+
+</body>
+</html>
