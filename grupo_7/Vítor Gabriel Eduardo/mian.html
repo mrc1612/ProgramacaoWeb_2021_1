@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-controller="Ex1" >
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="funcionario in funcionarios">
+                    <td ng-bind-html="funcionario.id"></td>
+                    <td ng-bind-html="funcionario.nome"></td>
+                    <td ng-bind-html="funcionario.departamento"></td>
+                    <td ng-bind-html="funcionario.endereco"></td>
+                    <td ng-bind-html="funcionario.email"></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div ng-controller="Ex2" >
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="funcionario.id"></td>
+                <td ng-bind-html="funcionario.nome"></td>
+                <td ng-bind-html="funcionario.departamento"></td>
+                <td ng-bind-html="funcionario.endereco"></td>
+                <td ng-bind-html="funcionario.email"></td>
+            </table>
+        </div>
+        <br>
+        <div ng-controller="Ex3" >
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="funcionarioDeletado.status"></td>
+            </table>
+        </div>
+        <br>
+        <div ng-controller="Ex4" >
+            <table class="table table-bordered table-striped">
+                <td ng-bind-html="funcionario.status"></td>
+            </table>
+        </div>
+
+        <script>
+            var app = angular.module('App', ['ngSanitize']);
+            
+            app.controller('Ex1', function($scope, $http) {
+                $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro").then(function(response) {
+                    $scope.funcionarios = response.data;
+                });
+            });
+
+            app.controller('Ex2', function($scope, $http) {
+                $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/0").then(function(response) {
+                    $scope.funcionario = response.data;
+                });
+            });
+            
+            app.controller('Ex3', function($scope, $http) {
+                $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80").then(function(response) {
+                    $scope.funcionarioDeletado = response.data;
+                });
+            });
+
+            app.controller('Ex4', function($scope, $http) {
+                const funcionarioNovo = {nome:"Vitinho",departamento:"Legal",endereco:"Avelino Pering",email:"vitinho@kickstarter.com"};
+                $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/80", funcionarioNovo).then(function(response) {
+                    $scope.funcionario = response.data;
+                });
+            });
+
+        </script>
+    </body>
+</html>
+
