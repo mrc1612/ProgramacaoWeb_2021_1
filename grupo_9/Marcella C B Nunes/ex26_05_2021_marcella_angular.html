@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <p>
+                <input type="text" ng-model="idFunc" autofocus>
+                <button ng-click="getFunc()">GET</button>
+                <button ng-click="deleteFunc()">DELETE</button>
+                <button ng-click="putFunc()">PUT</button>
+
+                <p>
+                    <input type="text" ng-model= "FuncNome" >
+                    <input type="text" ng-model="FuncDep" >
+                    <input type="text" ng-model="FuncEnd" >
+                    <input type="text" ng-model="FuncEmail" >
+                    
+                </p>
+            </p>
+          <p>
+              {{funcionario.id+' - '+funcionario.nome+' '+funcionario.departamento+' '+funcionario.endereco+' '+funcionario.email}}
+          </p>
+          <p ng-bind-html="funcionarioDel.status"></p>
+          <p ng-bind-html="funcionarioPut.status"></p>
+          
+          
+            <table class="table table-bordered table-striped">
+                <tr ng-repeat="Func in infoFunc">
+                    <td ng-bind-html="Func.id"></td>
+                    <td ng-bind-html="Func.nome"></td>
+                    <td ng-bind-html="Func.departamento"></td>
+                    <td ng-bind-html="Func.endereco"></td>
+                    <td ng-bind-html="Func.email"></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var app = angular.module('myApp', ['ngSanitize']);
+            app.controller('myCtrl', function($scope, $http) {
+              $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/")
+              .then(function(response) {
+                  $scope.infoFunc = response.data;
+              });
+              $scope.getFunc = function(){
+                $http.get("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idFunc)
+              .then(function(response) {
+                  $scope.funcionario = response.data; 
+                }); 
+              };
+              $scope.deleteFunc = function(){
+            $http.delete("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/"+$scope.idFunc)
+            .then(function(response) {
+             $scope.funcionarioDel = response.data; 
+              }); 
+             };
+             $scope.putFunc = function(){
+                const json = { nome: $scope.FuncNome, departamento: $scope.FuncDep, endereco: $scope.FuncEnd, email: $scope.FuncEmail};
+            $http.put("https://bu.furb.br/mcardoso/progWeb/testeApiRest.php/cadastro/",json)
+            .then(function(response) {
+            $scope.funcionarioPut = response.data; 
+            if (response.data)
+
+            $scope.msg = "Método PUT executado com sucesso";
+
+            }, function (response) {
+
+            $scope.msg = "Não existe";
+
+            $scope.statusval = response.status;
+
+            $scope.statustext = response.statusText;
+
+            $scope.headers = response.headers();
+            
+             }); 
+            };
+            });
+        </script>
+    </body>
+</html>
