@@ -1,0 +1,126 @@
+body{
+    background-color: #798776  !important;
+    font-family: 'Oxygen', sans-serif;
+}
+
+ul {
+    list-style:none;
+}
+
+tr{
+    text-align: center;
+}
+
+td, .column-id{
+    padding-top: 2rem !important;
+}
+
+hr{
+    height: 0.1rem !important;
+    color: #212529 !important;
+}
+
+a, a:hover, .navbar-toggler-icon,
+.footer, .main-title,.carousel-caption,
+.logged-name, .logoff{
+    text-decoration: none;
+    color: #f9e6e8 !important;
+}
+
+.navbar, .header, .footer,
+.register-button, .dropdown-menu{
+    background-color: #383838;
+} 
+
+.container{
+    margin-bottom: 5rem;
+}
+
+
+.logo{
+    height: 3rem !important;
+    width: 3rem !important;
+    float: left;
+    margin-left: 2rem;
+}
+
+.logged-user{
+    width: 100%;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+}
+
+.logged-img{
+    float: right;
+    height: 5rem !important;
+    width: 5rem !important;
+}
+
+.logged-name{
+    float: right;
+    padding-right: 0.5rem;
+    padding-top: 2rem;
+}
+.logoff{
+    padding-left: 3rem;
+}
+
+.header{
+    padding-top: 0.5rem;
+    display: inline-flex;
+    width: 100% !important;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.title{
+    justify-content: center;
+    text-align: center;
+}
+
+.subtitle{
+    font-size: 0.8rem;
+}
+
+.register-button{
+    margin-top: 2rem;
+    float: right;
+}
+
+.plant-image{
+    margin-top: 0.5rem
+}
+
+.table-image{
+    max-height: 5rem !important;
+}
+
+.submenu{
+    padding-left: 0;
+}
+
+@media (min-width: 1200px) {
+    .right-item{
+        margin-left: 16rem;
+    }
+    .carousel-item{
+        height: 30rem;
+    }
+}
+@media (max-width: 768px) {
+    .register-button{
+        width: 100%;
+    }
+
+}
+.carousel-caption{
+    background-color: #383838a1;
+}

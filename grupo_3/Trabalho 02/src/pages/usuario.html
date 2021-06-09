@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link href="../../assets/fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/brands.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+
+    <!-- VueJs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <caption>
+                <ul class="main-title pt-3">
+                    <a class="nav-link d-flex" href="./main.html">
+                        <img src="https://i.pinimg.com/originals/8d/31/44/8d31440ebf18d6588c4e005a0c187240.png"
+                            class="img-fluid rounded-circle logo">
+                        <li class="nav-item">
+                            <h1>PLANTS.</h1>
+                        </li>
+                    </a>
+                </ul>
+            </caption>
+
+            <div class="logged-user">
+                <img src="https://i.redd.it/cm7v4jwetbt21.png" class="rounded logged-img">
+                <div>
+                    <h5 class="logged-name">
+                        {{loggedUserName}} <br>
+                        <a class="nav-link" @Click="logout"><i class="fas fa-sign-out-alt logoff"></i></a>
+                    </h5>
+                </div>
+            </div>
+        </header>
+
+        <div class="container mt-4">
+            <section>
+                <h1>Cadastro de informações do usuário</h1>
+                <p class="subtitle">Adicione informações pessoais</p>
+
+
+                <div class="d-flex mt-5">
+                    <div class="register w-100">
+                        <div class="row">
+
+                            <div class="col-md">
+                                <label for="fullname" class="form-label">Nome completo</label>
+                                <div class="input-group mb-3 ">
+                                    <input type="text" class="form-control" id="fullname" v-model="userData.name">
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <label for="email" class="form-label">E-mail</label>
+                                <div class="input-group mb-3 ">
+                                    <input type="text" class="form-control" id="email" v-model="userData.email">
+                                </div>
+                            </div>
+
+                            <div class="col-md">
+                                <label for="state" class="form-label">Estado</label>
+                                <select id="state" class="form-select" v-model="userData.state">
+                                    <option value="pr">PR</option>
+                                    <option value="rs">RS</option>
+                                    <option value="sc">SC</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md">
+                                <label for="city" class="form-label">Cidade</label>
+                                <select id="city" class="form-select" v-model="userData.city">
+                                    <option value="curitiba">Curitiba</option>
+                                    <option value="florianopolis">Florianópolis</option>
+                                    <option value="portoalegre">Porto Alegre</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <button type="button" @Click="setUserInfo"
+                                    class="btn btn-secondary register-button">Cadastrar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <input class="form-check-input" type="checkbox" id="notifications"
+                                    v-model="userData.notify">
+                                <label class="form-check-label" for="notifications">
+                                    Receber notificações por e-mail
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                loggedUserName: "",
+                userData: {
+                    name: "",
+                    state: "",
+                    city: "",
+                    notify: false
+                }
+            },
+            created() {
+                let username = this.getCookie("username");
+                if (username != "") {
+                    this.loggedUserName = username;
+                    this.userData.name = username;
+                }
+            },
+            methods: {
+                getCookie(cname) {
+                    var name = cname + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                },
+                logout() {
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                    this.loggedUserName = "";
+                    location.href = './main.html';
+                },
+                setUserInfo() {
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                    document.cookie = "username=" + username;
+                }
+            }
+        })
+    </script>
+
+    <footer class="footer">
+        Bianca Krug de Jesus - Gabrielle Alice Adriano -
+        Luísa Vegini Remonato - Lydia Garcia
+    </footer>
+</body>
+
+</html>
