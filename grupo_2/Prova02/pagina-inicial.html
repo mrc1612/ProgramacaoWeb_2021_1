@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/estilos.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/rodape.css">
+    <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/responsive.js"></script>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="header-buttons">
+            <img src="./imagens/bars.png" class="bars" onclick="showMenu()">
+
+            <a class="logo">
+                <img class="img" src="./imagens/github.png">
+            </a>
+        </div>
+        
+        <h5 id="no-logged-user">Usuário não autenticado</h4>
+        <a onclick="abrirModal()" class="perfil" id="profile-photo" href="#">
+            <img class="foto" src="./imagens/user2.jpg">
+        </a>
+    </header>
+
+    <nav class="sidebar" id="sidebar">
+        
+        <ul>
+            <li id="login-link">
+                <a href="./login.html">
+                    <div class="item">Login</div>
+                </a>
+            </li>
+
+            <li id="logout-link" onclick="logoutButton()">
+                <a href="#">
+                    <div class="item">Logout</div>
+                </a>
+            </li>
+
+            <li id="cadastro-link">
+                <a href="./repositorios.html">
+                    <div class="item">Cadastro de repositório</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <div class="item">Usuários</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Repositórios</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Explorar</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Loja</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Melhores repositórios</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Repositórios com estrela</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Buscar repositórios</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="item">Open Source</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main id="main">
+        <section>
+            <p class="text-center">Nosso site é para cadastrar repositórios do site Github</p>
+        </section>
+    </main>
+    
+    <div id="modal-id" class="background-modal">
+        <div class="modal-class">
+            <p id="alterar"></p>
+            <h2 class="titulo">Alterar Usuário</h2>
+            <form id="form-profile">
+                <input type="text" class="form-control" name="name" placeholder="Nome do usuário">
+                <input type="email" class="form-control" name="email" placeholder="Email">
+                <input type="text" class="form-control" name="universidade" placeholder="Universidade">
+                <select class="form-control" name="sexo" id="exampleFormControlSelect1">
+                    <option value="M" >Masculino</option>
+                    <option value="F" >Feminino</option>
+                </select>
+
+
+                <h5 style="margin-top: 10px">Semestre</h5>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="1-semestre" value="1">
+                    <label class="form-check-label" for="1-semestre">
+                        1º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="2-semestre" value="2">
+                    <label class="form-check-label" for="2-semestre">
+                        2º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="3-semestre" value="3">
+                    <label class="form-check-label" for="3-semestre">
+                        3º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="4-semestre" value="4">
+                    <label class="form-check-label" for="4-semestre">
+                        4º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="5-semestre" value="5">
+                    <label class="form-check-label" for="5-semestre">
+                        5º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="6-semestre" value="6">
+                    <label class="form-check-label" for="6-semestre">
+                        6º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="7-semestre" value="7">
+                    <label class="form-check-label" for="7-semestre">
+                        7º Semestre
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="semestre" id="8-semestre" value="8">
+                    <label class="form-check-label" for="8-semestre">
+                        8º Semestre
+                    </label>
+                </div>
+
+            </form>
+            <div class="robertinho">
+                <button type='button' onclick="cancelarModal()" class='btn btn-secondary'>Cancelar</button>
+                <button type='button' onclick="salvarProfile()" class='btn btn-success'>Salvar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="rodape">Felipe, Jennyfer e Pablo</footer>
+    
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/functional.js"></script>
+</body>
+
+</html>

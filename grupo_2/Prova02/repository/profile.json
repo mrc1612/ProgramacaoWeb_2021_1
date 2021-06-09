@@ -1,0 +1,7 @@
+data = {
+    "name": "Usuário",
+    "email": "email@email.com",
+    "sexo": "M",
+    "universidade": "FURB",
+    "semestre": 2
+}

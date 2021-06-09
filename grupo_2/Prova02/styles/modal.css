@@ -1,0 +1,42 @@
+.background-modal {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1500;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.background-modal .modal-class {
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    width: 550px;
+    border-radius: 8px;
+    position: fixed;
+    background-color: #FFFFFF;
+    transform: translate(-50%,-50%);
+}
+
+.background-modal .modal-class p {
+    display: none;
+}
+
+.background-modal .modal-class .titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.background-modal .modal-class input {
+    margin-bottom: 20px;
+}
+
+.background-modal .modal-class .btn-warning {
+    float: right;
+}
+
+.robertinho {
+    margin-top: 20px;
+}
