@@ -1,0 +1,16 @@
+isloggedin{
+    //header child
+    <a class="user" href="https://facebook.com/"><img class="image"  src="./images/17004.png"></a>
+
+    //nav child
+    <a href="#" id="logout">Logout</a>
+
+    <a href="cadastro.html" id="cadastrar">Cadastrar</a>
+
+} else {
+    //header child
+    <a id="myBtn" class="user">Log In</a>
+
+    //nav child
+    <a href="#" id="cadastrar">Cadastrar</a>
+}
