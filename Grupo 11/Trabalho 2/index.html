@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Pet Shop San-Marine</title>
+
+        <!-- ANGULAR -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+
+        <!-- Icone -->
+        <link href="img/cachorro.png" rel="icon">
+
+        <!-- Fonte do Google -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- CSS Externo -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- CSS Interno -->
+        <link href="css/style.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    </head>
+
+    <body ng-app="app">
+        <div class="wrapper">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-md-12">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="img/cachorro.png" alt="Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7 d-none d-lg-block">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-text">
+                                            <h1>San-Marine</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-controller="verificarLogado" class="col-8">
+                                    <div ng-if="logado" class="top-bar-item">
+                                        <div class="top-bar-icon logo">
+                                            <a href="infousuario.html">
+                                            <img class="rounded-circle" src="img/UsuarioLogado.png" alt="Usuário Logado">
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Gustavo</h3>
+                                            <p>Sair</p>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="!logado" class="top-bar-item">
+
+                                        <div class="text-center" style="padding-top: 15px;">
+                                            <h3>Você não está</h3>
+                                            <p>Logado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Top Bar -->
+
+            <!-- Nav Bar -->
+            <nav class="nav-bar">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                        <a href="#" class="navbar-brand">MENU</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div ng-controller="verificarLogado" class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto">
+                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <a ng-if="logado" href="cadastro.html" class="nav-item nav-link">Cadastro</a>
+                                <a ng-if="!logado" href="" data-toggle="modal" data-target="#modalLogin"  class="nav-item nav-link">Login</a>
+                                <a ng-if="logado" ng-click="logout()" href="index.html" class="nav-item nav-link">Logout</a>
+                                <a href="index.html" class="nav-item nav-link">Visitas</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Outros</a>
+                                    <div class="dropdown-menu">
+                                        <a href="index.html" class="dropdown-item">Sobre</a>
+                                        <a href="index.html" class="dropdown-item">Ajuda</a>
+                                    </div>
+                                </div>
+                                <a href="index.html" class="nav-item nav-link">Contato</a>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">LOGIN</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group row">
+                                          <label for="inputEmail" class="col-sm-2 col-form-label">Email:</label>
+                                          <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="email" placeholder="Email">
+                                          </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label for="inputAnimal" class="col-sm-2 col-form-label">Senha:</label>
+                                          <div class="col-sm-10">
+                                            <input type="password" class="form-control" placeholder="Senha" id="senha">
+                                          </div>
+                                        </div>
+                                    </form>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a class="text-primary" href="#">Esqueci meu login</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a class="text-primary" href="#">Esqueci minha senha</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+                                  <button ng-controller="verificarLogin" ng-click="logar()" type="button" data-dismiss="modal" class="btn btn-primary">Entrar</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                    </nav>
+                </div>
+            </nav>
+            <!-- Nav Bar -->
+
+
+            <!-- SobreNos -->
+            <section class="about wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container section">
+                    <div class="row align-items-center">
+                        <div class="col col-lg-5">
+                            <div class="about-img">
+                                <img src="https://static.purinorteagropet.com.br/public/purinorte/imagens/produtos/canil-gatil-gaiola-vertical-petshop-3lugares-caesgatoscoelhos-4081.jpg" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col col-sm-12 col-lg-7">
+                            <div class="section-header text-left">
+                                <p>San-Marine PetShop</p>
+                                <h2>117 Anos de Sho<span class="badge badge-warning">Pet</span>ria</h2>
+                            </div>
+                            <div class="about-text">
+                                <p>
+                                    Somos apaixonados por pets. Essa é uma realidade vivenciada todos os dias em nossas atitudes, nas lojas e em todos os nossos pontos de contato. Trabalhamos para que você e seus pets tenham a melhor experiência em nossas lojas, através dos serviços de estética e veterinária ou pela variedade de produtos. Correndo atrás das novidades do mundo pet e levá-las até você. Tudo é preparado e organizado para você encontrar o que procura, somos a San-Marine PetShop.
+                                </p>
+                                <p>
+                                    Nossa Missão: Criar valor na interação com os apaixonados por animais de estimação, potencializando o bem da relação entre o pet e sua família.
+                                </p>
+                                <a class="btn" href="">Acompanhe-nós</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SobreNos -->
+
+            <!-- Footer Start -->
+            <footer class="footer wow fadeIn" data-wow-delay="0.3s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-3 d-flex justify-content-center">
+                            <div class="footer-contact">
+                                <h2>Nosso Endereço</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>745 Pãozinho, Aqui, Brazil</p>
+                                <p><i class="fa fa-phone-alt"></i>+47 3287-1728</p>
+                                <p><i class="fa fa-envelope"></i>eumail@Outlook.com</p>
+                                <div class="footer-social">
+                                    <a href="https://www.google.com/search?q=mc+brisola&sxsrf=ALeKk01SuK6X5Z29tHbfn0bJ-vJXv54aWw:1619357440510&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiCz4XIwJnwAhVwHbkGHV4hCrwQ_AUoAnoECAEQBA&biw=1536&bih=722#imgrc=zcx2O0Zvhb95JM"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.google.com/search?q=mc+don+juan&sxsrf=ALeKk00Mw-m2Qjm6LumPxTotpmJhXM1pig:1619357482056&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjCue3bwJnwAhXVGbkGHQe-B_kQ_AUoA3oECAEQBQ&biw=1536&bih=722#imgrc=Krbb_eBU5kX2WM"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.google.com/search?q=mc+livinho+inicio+de+carreira&tbm=isch&ved=2ahUKEwi2w4_BwZnwAhXpo5UCHXQFBdwQ2-cCegQIABAA&oq=mc+livinho+inicio&gs_lcp=CgNpbWcQARgAMgQIABAeOgQIIxAnOgIIADoECAAQGFDilQRY6KcEYMiuBGgAcAB4AIABhQGIAYUGkgEDMC43mAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=_m-FYLbMGenH1sQP9IqU4A0&bih=722&biw=1536#imgrc=ATjVHfejjaWvIM"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.google.com/search?q=mc+lan&sxsrf=ALeKk027UgRNIOXEFRZFfJ5uZtrHsU-irA:1619357937134&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjonO20wpnwAhV7IbkGHfpjCJwQ_AUoA3oECAEQBQ&biw=1366&bih=625&dpr=1#imgrc=LbOTRuMdpIb4bM"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.google.com/search?q=mcrajazito&sxsrf=ALeKk031TuPuEUIf3Xskf5ITnbdXAhdQhw:1619358065102&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiT4u_xwpnwAhWfLLkGHf8BCksQ_AUoA3oECAEQBQ&biw=1366&bih=625#imgrc=rgmthgK1e_J7yM"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="footer-link">
+                                <div class="d-flex justify-content-center">
+                                    <h2>Integrantes</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 text-center">
+                                        <img src="img/Lorena.png" alt="Imagem da Lorena" class="img-thumbnail img-integrantes">
+                                        <h5 class="text-center text-white">Lorena Ricardo De Oliveira</h5>
+                                        <p>- Não se apega romance é ilusão, nóiz é o bixo conduzindo o canhão<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-note" viewBox="0 0 16 16">
+                                            <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+                                            <path fill-rule="evenodd" d="M9 3v10H8V3h1z"/>
+                                            <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/>
+                                          </svg></p>
+                                    </div>
+                                    <div class="col-lg-4 text-center">
+                                        <img src="img/Ricardo.png" alt="Imagem do Ricardo" class="img-thumbnail img-integrantes">
+                                        <h5 class="text-center text-white">Ricardo Dhuan Wutke</h5>
+                                        <p>- Cavaleiro pra tu minha senhora pra eles é tróia <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-music-player-fill" viewBox="0 0 16 16">
+                                            <path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                            <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm1 2h6a1 1 0 0 1 1 1v2.5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm3 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                          </svg></p>
+                                    </div>
+                                    <div class="col-lg-4 text-center">
+                                        <img src="img/UsuarioLogado.png" alt="Imagem do Gustavo" class="img-thumbnail img-integrantes">
+                                        <h5 class="text-center text-white">Gustavo Henrique Kistner</h5>
+                                        <p>- Chama as BB que hoje, o pai tá <span class="badge badge-success">ON</span> <i class="fa fa-music"></i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Externo -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+        <!-- JavaScript Interno-->
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/mainAngular.js"></script>
+
+    </body>
+</html>
