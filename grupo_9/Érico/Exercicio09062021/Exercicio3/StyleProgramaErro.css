@@ -1,0 +1,14 @@
+#principal {
+    padding: 15px 0px 15px 0px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#pJuridica, #pFisica {
+    padding-top: 15px;
+    text-align: center;
+}
+
+input[type="text"] {
+    margin-top: 15px;
+}
