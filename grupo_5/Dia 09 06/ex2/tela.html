@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <label>Texto:</label>
+    <input type="text" id="texto">
+    <button onclick="calcularTamanho()">Tamanho da palavra</button>
+    <br>
+    <p id="p1"></p>
+    <p id="tamanho">O tamanho da palavra é: </p>
+    <hr>
+    
+
+  <script>
+    let texto = document.querySelector("#texto")
+    let resultado = document.querySelector("#p1")
+    let tamanho = document.querySelector("#tamanho")
+
+    texto.addEventListener("input", (e) => {
+      let palavra = texto.value
+      resultado.innerHTML = palavra
+    })
+
+    function calcularTamanho() {
+      let tamanhoPalavra = "O tamanho da palavra é: " + texto.value.length
+      tamanho.innerHTML = tamanhoPalavra
+    }
+
+  </script>
+</body>
+
+</html>
