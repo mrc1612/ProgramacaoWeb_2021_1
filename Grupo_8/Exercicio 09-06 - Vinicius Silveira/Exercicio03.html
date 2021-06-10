@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=HUPMo20zitnSrA_mX6G3nCvf2M2GelusvvFJ3Si4K37MHKod89viOBde4hnk7fvnIuLstOkHwOIr4xaELjDj77QzCHt3wR7WtLMwg2zDe4YA1PigdvaLHLVARPF-McjJD6CmvCacDoLNZ53s-WdZ9x6Laz04yMpsvGh4Mwz-y_o" charset="UTF-8"></script></head>
+    <body>
+        <div id="principal">
+            <label for="rgPFisica">Pessoa f&iacute;sica</label>
+            <input type="radio" name="formato" id="rgPFisica" value="F" onclick="chamaPessoaFisica()">
+            <label for="rgPJuridica">Pessoa jur&iacute;dica</label>
+            <input type="radio" name="formato" id="rgPJuridica" value="J" onclick="chamaPessoaJuridica()">
+        </div>
+        <div id="pFisica">
+            <label for="nmPessoa">Nome pessoa: </label>
+            <input type="text" id="nmPessoa"><br>
+            <label for="nrCPF">CPF: </label>
+            <input type="text" id="nrCPF">
+        </div>
+        <div id="pJuridica">
+            <label for="nmEmpresa">Nome empresa: </label>
+            <input type="text" id="nmEmpresa"><br>
+            <label for="nrCNPJ">CNPJ: </label>
+            <input type="text" id="nrCNPJ">
+        </div>
+    </body>
+
+    <script>
+        var fisica = document.getElementById("pFisica")
+        var juridica = document.getElementById("pJuridica")
+        fisica.hidden = true;
+        juridica.hidden = true;
+
+        function chamaPessoaFisica(){
+            fisica.hidden = false;
+            juridica.hidden = true;
+        }
+        function chamaPessoaJuridica(){
+            fisica.hidden = true;
+            juridica.hidden = false;
+        }
+    </script>
+</html>
