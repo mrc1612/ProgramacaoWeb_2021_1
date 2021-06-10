@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <input id="texto_01" type="text" ng-keyup="atualizaMensagem()">
+        <button id="btn_01" type="submit" ng-click="atualizaTamanho()">Mostra tamanho da mensagem</button>
+        <p>{{textoClone}}</p>
+        <p>{{tamanhoTexto}}</p>
+    </body>
+    <script>
+        
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            $scope.atualizaMensagem = function(){
+                $scope.textoClone = document.getElementById("texto_01").value;
+            }
+            $scope.atualizaTamanho = function(){
+                $scope.tamanhoTexto = "O tamanho atual do campo é de: " + document.getElementById("texto_01").value.length;
+            }
+        })
+    </script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <div id="principal">
+            <label for="rgPFisica">Pessoa f&iacute;sica</label>
+            <input type="radio" name="formato" id="rgPFisica" value="F" ng-click="clicouPF()">
+            <label for="rgPJuridica">Pessoa jur&iacute;dica</label>
+            <input type="radio" name="formato" id="rgPJuridica" value="J" ng-click="clicouPJ()">
+        </div>
+        <div id="pFisica">
+            <label for="nmPessoa">Nome pessoa: </label>
+            <input type="text" id="nmPessoa"><br>
+            <label for="nrCPF" >CPF: </label>
+            <input type="text" id="nrCPF">
+        </div>
+        <div id="pJuridica" >
+            <label for="nmEmpresa">Nome empresa: </label>
+            <input type="text" id="nmEmpresa"><br>
+            <label for="nrCNPJ">CNPJ: </label>
+            <input type="text" id="nrCNPJ">
+        </div>
+    </body>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            let positionCSSStyle = "position: absolute;";
+            let visibilityCSSStyle = "visibility: hidden;";
+            $scope.clicouPF = function(){
+                document.getElementById("pFisica").style = positionCSSStyle;
+                document.getElementById("pJuridica").style = positionCSSStyle+visibilityCSSStyle;
+            }
+            $scope.clicouPJ = function(){
+                document.getElementById("pFisica").style = positionCSSStyle+visibilityCSSStyle;
+                document.getElementById("pJuridica").style = positionCSSStyle;
+            }
+        })
+    </script>
+</html>

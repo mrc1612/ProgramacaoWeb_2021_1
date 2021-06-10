@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <input id="num_01" type="number">
+        <input id="num_02" type="number">
+        <button id="btn_01" type="submit" ng-click="calcularSomar()" >Somar valores</button>
+        <p>{{valorSomado}}</p>
+        <button id="btn_02" type="submit" ng-click="verificarNumeroMaior()" >Verificar número</button>
+        <div id="divMensagemNumeroMaior">{{mensagemNumeroMaior}}</div>
+    </body>
+    <script>
+        
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            $scope.calcularSomar = function(){
+                $scope.valorSomado = parseInt(document.getElementById("num_01").value) + parseInt(document.getElementById("num_02").value);
+            }
+
+            $scope.verificarNumeroMaior = function(){
+                let numero_01 = parseInt(document.getElementById("num_01").value);
+                let numero_02 = parseInt(document.getElementById("num_02").value);
+                if(numero_01 > numero_02){
+                    $scope.mensagemNumeroMaior = "Primeiro número é maior";
+                    document.getElementById('divMensagemNumeroMaior').style = "background-color: red";
+                }else if(numero_02 > numero_01){
+                    $scope.mensagemNumeroMaior = "Segundo número é maior";
+                    document.getElementById('divMensagemNumeroMaior').style = "background-color: green";
+                }else{
+                    $scope.mensagemNumeroMaior = "Ambos são iguais";
+                    document.getElementById('divMensagemNumeroMaior').style = "background-color: yellow";
+                }
+            }
+        })
+    </script>
+</html>
