@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/classCalculo.js"></script>
+        <script>
+            
+            function replicaString() {
+				var string = "";
+                string = document.getElementById("str").value;
+				document.getElementById("mostra").innerHTML = string;
+            }
+			function somaString(){
+				var string = "";
+				string = document.getElementById("str").value;
+				document.getElementById("mostra2").innerHTML = "";
+				document.getElementById("mostra2").innerHTML += "O tamanho atual do arquivo é de: " + string.length;
+			}
+        </script>
+    </head>
+    <body>
+        <label for="num1">Entrada: </label>
+		
+        <input type="text" id="str" onkeyup="replicaString()">
+		<button onClick="somaString()">Soma String</button><br>
+        <div id="mostra"></div><br>
+		<div id="mostra2"> </div><br>
+    </body>
+</html>

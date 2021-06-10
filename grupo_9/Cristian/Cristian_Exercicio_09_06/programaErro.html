@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="principal">
+            <label for="rgPFisica">Pessoa f&iacute;sica</label>
+            <input onclick="pessoaFisica()" type="radio" name="formato" id="rgPFisica" value="F">
+            <label for="rgPJuridica">Pessoa jur&iacute;dica</label>
+            <input onclick="pessoaJuridica()" type="radio" name="formato" id="rgPJuridica" value="J">
+        </div>
+        <div style="display: none;" id="pessoaFisica">
+            <label for="nmPessoa">Nome pessoa: </label>
+            <input type="text" id="nmPessoa"><br>
+            <label for="nrCPF">CPF: </label>
+            <input type="text" id="nrCPF">
+        </div>
+        <div style="display: none;" id="pessoaJuridica">
+            <label for="nmEmpresa">Nome empresa: </label>
+            <input type="text" id="nmEmpresa"><br>
+            <label for="nrCNPJ">CNPJ: </label>
+            <input type="text" id="nrCNPJ">
+        </div>
+    </body>
+
+    <script>
+        function pessoaFisica(){
+            document.getElementById("pessoaFisica").style.display = "block";
+            document.getElementById("pessoaJuridica").style.display = "none";
+        }
+
+        function pessoaJuridica(){
+            document.getElementById("pessoaFisica").style.display = "none";
+            document.getElementById("pessoaJuridica").style.display = "block";
+        }
+
+    </script>
+</html>
