@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="programaErro.js"></script>
+    </head>
+    <body>
+        <div id="principal">
+            <label for="rgPFisica">Pessoa f&iacute;sica</label>
+            <input onclick="showPF()" type="radio" name="formato" id="rgPFisica" value="F">
+            <label for="rgPJuridica">Pessoa jur&iacute;dica</label>
+            <input onclick="showPJ()" type="radio" name="formato" id="rgPJuridica" value="J">
+        </div>
+        <div id="pFisica" style="display: none;">
+            <label for="nmPessoa">Nome pessoa: </label>
+            <input type="text" id="nmPessoa"><br>
+            <label for="nrCPF">CPF: </label>
+            <input type="text" id="nrCPF">
+        </div>
+        <div id="pJuridica" style="display: none;">
+            <label for="nmEmpresa">Nome empresa: </label>
+            <input type="text" id="nmEmpresa"><br>
+            <label for="nrCNPJ">CNPJ: </label>
+            <input type="text" id="nrCNPJ">
+        </div>
+    </body>
+</html>
