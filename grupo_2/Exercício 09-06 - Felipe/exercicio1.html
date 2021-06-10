@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1</title>
+</head>
+
+<body>
+  <label for="numero1">Número 1:</label>
+  <input type="number" name="numero1" id="num1">
+  <br>
+  <label for="numero2">Número 2:</label>
+  <input type="number" name="numero2" id="num2">
+  <br>
+  <button onclick="somar()">Soma</button>
+  <hr>
+  <p id="resultado">Resultado da soma: </p>
+  <hr>
+  <button onclick="funcao()">Clique aqui</button>
+  <p id="resultado2"></p>
+  <script>
+    function somar() {
+      let num1 = Number(document.querySelector("#num1").value)
+      let num2 = Number(document.querySelector("#num2").value)
+      let idResultado = document.querySelector("#resultado")
+
+      let resultado = num1 + num2
+      idResultado.innerHTML = "Resultado da soma: " + resultado
+    }
+
+    function funcao() {
+      let num1 = Number(document.querySelector("#num1").value)
+      let num2 = Number(document.querySelector("#num2").value)
+      let idResultado = document.querySelector("#resultado2")
+      let mensagem
+      let cor
+
+      if (num1 > num2) {
+        mensagem = "Primeiro número é maior"
+        cor = "red"
+      } else if (num2 > num1) {
+        mensagem = "Segundo número é maior"
+        cor = "green"
+      } else {
+        mensagem = "Ambos são iguais"
+        cor = "yellow"
+      }
+
+      idResultado.innerHTML = mensagem
+      idResultado.style.backgroundColor = cor
+    }
+
+  </script>
+</body>
+
+</html>
