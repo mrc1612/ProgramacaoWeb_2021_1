@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="main">
+            <label for="rgPF"> Pessoa f&iacute;sica</label>
+            <input onclick="exibirPF()" type="radio" name="formato" id="rgPF" value="F">
+            <label for="rgPJ"> Pessoa jur&iacute;dica</label>
+            <input onclick="exibirPJ()" type="radio" name="formato" id="rgPJ" value="J">
+
+        </div>
+        
+        <div style="display: none;" id="PF">
+            <label for="nomePessoa"> Nome da pessoa: </label>
+            <input type="text" id="nomePessoa"><br>
+            <label for="nroCPF"> Numero do CPF: </label>
+            <input type="text" id="nroCPF">
+        </div>
+
+        <div style="display: none;" id="PJ">
+            <label for="nomeEmpresa"> Nome da empresa: </label>
+            <input type="text" id="nomeEmpresa"><br>
+            <label for="nroCNPJ"> Numero do CNPJ: </label>
+            <input type="text" id="nroCNPJ">
+        </div>
+    </body>
+    <script>
+        function exibirPF(){
+            document.getElementById("PF").style.display = "block";
+            document.getElementById("PJ").style.display = "none";
+        }
+
+        function exibirPJ(){
+            document.getElementById("PF").style.display = "none";
+            document.getElementById("PJ").style.display = "block";
+        }
+
+    </script>
+</html>
