@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="number" id="nroUm">
+        <br>
+        <br>
+        <input type="number" id="nronroDois">
+        <br>
+        <br>
+        <br>
+        <button onclick="add()">Somar</button>
+        <button onclick="maiorNum()">Qual o maior número?</button>
+
+        <p id="soma"></p>
+
+        <div id="maior"></div>
+
+    </body>
+
+    <script>
+        function add(){
+            var prim = document.getElementById("nroUm").value;
+            var seg = document.getElementById("nronroDois").value;
+            if(prim != "" && seg != ""){
+                var soma = parseInt(prim) + parseInt(seg);
+                document.getElementById("soma").innerHTML = "A soma dos números é:" + soma;
+            }else{
+                alert("Favor informar dois números");
+            }
+        }
+
+        function maiorNum(){
+            var prim = document.getElementById("nroUm").value;
+            var seg = document.getElementById("nronroDois").value;
+            if(prim != "" && seg != ""){
+                if(parseInt(nroUm) > parseInt(nroDois)){
+                    document.getElementById("maior").innerHTML = "Primeiro número é maior";
+                    document.getElementById("maior").style.backgroundColor = "RED";
+                }
+                else if(parseInt(nroUm) < parseInt(nroDois)){
+                    document.getElementById("maior").innerHTML = "Segundo número é maior";
+                    document.getElementById("maior").style.backgroundColor = "green";
+                } else{
+                    document.getElementById("maior").innerHTML = "Ambos são iguais";
+                    document.getElementById("maior").style.backgroundColor = "yellow";
+                }
+            }else{
+                alert("Favor informar dois números");
+            }
+        }
+    </script>
+</html>

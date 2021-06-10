@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input onkeyup="mostrar()" type="text" id="texto">
+        <button style="margin-right:20px;" onclick="qntd()">Tamanho</button>
+        <p id="valor"></p>
+        <div id="qtdeLetras"></div>
+    </body>
+    <script>
+        function qntd(){
+            var cont = document.getElementById("texto").value;
+            console.log(cont);
+            console.log(cont.length);
+            document.getElementById("qtdeLetras").innerHTML = "O tamanho do campo é:" + a.length;
+        }
+        function mostrar(){
+            document.getElementById("valor").innerHTML = document.getElementById("texto").value;
+        }
+    </script>
+</html>
