@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Lanchonete Web - Menu</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><span class="material-icons logo">fastfood</span></a>
+        <h1 class="nome">Lanchonete Web</h1>
+        <span class="material-icons user" id="imgStatusUser">account_circle</span>
+    </header>
+    <div class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="cadastro.html" id="cadastro-link">Pedido</a>
+        <a href="#contato">Contato</a>
+        <a href="login.html">Login</a>
+        <a id="logout-link" onclick="fazerLogout()">Logout</a>
+    </div>
+    <article class="main">
+        <p id="statusUser"></p>
+        
+    </article>
+    <footer class="footer">
+        <p id="nomes">Gustavo Poffo, Lucas Serodio e Vítor Eduardo</p>
+    </footer>
+</body>
+   <script>
+       function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            var login = getCookie("login");
+            if (login != "") {
+                document.getElementById('statusUser').innerHTML = "Usuário: " + login;
+                document.getElementById('imgStatusUser').addEventListener('mouseenter', e => {
+                    document.getElementById('imgStatusUser').style.cursor = "pointer";
+                    document.getElementById('imgStatusUser').style.color = '#98ddca';
+                });
+                document.getElementById('imgStatusUser').addEventListener('mouseleave', e => {
+                    document.getElementById('imgStatusUser').style.color = 'white';
+                });
+                document.getElementById('imgStatusUser').onclick = function() {
+                    window.location.assign("cadastroInfoUsuario.html");
+                }
+            } else {
+                document.getElementById('imgStatusUser').innerHTML = 'login';
+                document.getElementById('imgStatusUser').style.color = "black";
+                document.getElementById('statusUser').innerHTML = "Favor fazer login!";
+                document.getElementById('statusUser').style.color = "red";
+                document.getElementById('cadastro-link').style.color = "red";
+                document.getElementById('cadastro-link').removeAttribute("href");
+            }
+            
+            function fazerLogout() {
+                document.cookie="login=" + login +"; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+                document.location.reload(true);
+            }
+   </script>
+</html>
