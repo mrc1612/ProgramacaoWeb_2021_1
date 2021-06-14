@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="imgs/icone.ico" type="image/x-icon">
+    
+    <title>Login</title>
+    <link rel="stylesheet" href="estiloLogin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="content content-logar"> 
+            <br>
+            <div class="column">
+                <h2 class="title">Cadastrar</h2>
+                <div class="social-media">
+                    <ul class="list-social-media">
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-facebook-f"></i>        
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-google-plus-g"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-linkedin-in"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-twitter"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-reddit-square"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+
+                <p class="description">ou use seu email para criar uma conta</p>
+                <form class="form"; name="formCadastro";>         
+                    <label class="label-input" for="">
+                        <i class="far fa-user icon-modify"></i>
+                        <input type="text" placeholder="Nome" id="nome">
+                    </label>
+                    <label class="label-input" for="email">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input type="email" placeholder="Email" id="email">
+                    </label>
+                    <label class="label-input" for="senha">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" placeholder="Senha" id="senha">
+                    </label>
+                    <label class="label-input" for="nascimento">
+                        <i class="fas fa-calendar-week icon-modify"></i>
+                        <input type="date" placeholder="Nascimento" id="nascimento">
+                    </label>
+                    <label for="pessoa" class="label-input">
+                        <i class="fas fa-pencil-alt icon-modify"></i>
+                        <textarea rows="4" cols="80" placeholder="Fale mais sobre você" id="pessoa"></textarea>
+                    </label>
+                </form>
+                <button class="btn" onclick="fazerCadastro()">Cadastrar</button>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>
