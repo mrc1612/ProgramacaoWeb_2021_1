@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input {
+    margin-bottom: 0.5rem;
+}
+
+#extra-result {
+    padding: 0.5rem;
+}
+
+.first-greater {
+    background-color: red;
+}
+
+.second-greater {
+    background-color: green;
+}
+
+.both-equal {
+    background-color: yellow;
+}

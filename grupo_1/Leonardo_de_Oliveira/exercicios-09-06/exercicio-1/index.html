@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Digite um número nos 2 campos para calcular a soma</h1>
+
+<form onsubmit="return false">
+    <input required type="number" id="first"/>
+    <input required type="number" id="second"/>
+
+    <button onclick="showSum()" type="submit">Somar</button>
+
+    <p id="sum-result"></p>
+
+    <button onclick="showExtra()" type="submit">Mostrar qual é maior</button>
+    <p id="extra-result"></p>
+</form>
+
+</body>
+</html>

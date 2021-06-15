@@ -1,0 +1,32 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    width: 250px;
+    display: block;
+    text-align: center;
+    alignment: center;
+    margin-bottom: 18px;
+}
+
+.name-phone {
+    padding: 10px;
+}
+
+.name-phone p {
+    margin: 0;
+    font-family: Arial;
+}
+
+a {
+    padding: 10px;
+    display: block;
+    background-color: gray;
+    font-family: Verdana;
+}
+
+img {
+    width: 100%;
+    background-color: black;
+}
