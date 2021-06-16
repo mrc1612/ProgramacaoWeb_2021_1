@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <label for="valor1">Numero1: </label>
+        <input type="number" id="valor1"><br>
+        <label for="valor2">Numero2: </label>
+        <input type="number" id="valor2"><br>
+        <button onclick="soma(valor1.value,valor2.value)">somar</button>
+        <div>
+            <h1 id="soma"></h1>
+        </div>
+        
+        <button onclick="compara(valor1.value,valor2.value)">clique aqui</button>
+        <div>
+            <h1 id="resultado"></h1>
+        </div>
+        
+
+        <script>
+            function soma(valor1, valor2){
+                var soma = Number(valor1) + Number(valor2)
+                document.getElementById("soma").innerHTML = soma;
+            }
+            function compara(valor1,valor2){
+                if (valor1 > valor2){
+                    document.getElementById("resultado").innerHTML = "Primeiro número é maior";
+                    document.getElementById("resultado").style.backgroundColor = 'red';
+                }
+                else if(valor1 < valor2) {
+                    document.getElementById("resultado").innerHTML = "Segundo número é maior";
+                    document.getElementById("resultado").style.backgroundColor = 'green';
+                }
+                else if(valor1 == valor2){
+                    document.getElementById("resultado").innerHTML = "Ambos são iguais";
+                    document.getElementById("resultado").style.backgroundColor = 'yellow';
+                }
+            }
+        </script>
+        
+        
+    </body>
+</html>
