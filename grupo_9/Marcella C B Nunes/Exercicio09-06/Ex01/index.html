@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/classNumber.js"></script>
+        
+        <script>
+            var vNumber = "";
+
+            function somar() {
+                var vNumberA = document.getElementById("numberA").value;
+                var vNumberB = document.getElementById("numberB").value;
+                vNumber = new number(vNumberA, vNumberB);
+                document.getElementById("mostra").innerHTML =
+                    vNumber.soma();
+            }
+            function calculaMaior() {
+                var vNumberA = document.getElementById("numberA").value;
+                var vNumberB = document.getElementById("numberB").value;
+                vNumber = new number(vNumberA, vNumberB);
+                document.getElementById("mostra").innerHTML =
+                    vNumber.calculaMaior();
+            }
+
+
+        </script>
+</head>
+<body>
+        <label for="numberA">Number A: </label>
+        <input type="number" id="numberA"><br>
+        <label for="numberB">Number B:</label>
+        <input type="number" id="numberB"><br>
+        <button onClick="somar()">soma</button>
+        <button onClick="calculaMaior()">calculaMaior</button>
+        <div id="mostra"></div><br>
+        
+</body>
+</html>

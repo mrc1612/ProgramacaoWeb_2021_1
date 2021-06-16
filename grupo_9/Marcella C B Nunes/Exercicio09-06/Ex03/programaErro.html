@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <link rel="stylesheet" href="style.css">
+        <script>
+        function mostra() {
+            if (document.getElementById('rgPFisica').checked) {
+                document.getElementById('pFisica').style.display = 'block';
+                 document.getElementById('pJuridica').style.display = 'none';
+            }
+            else{
+                 document.getElementById('pFisica').style.display = 'none';
+                document.getElementById('pJuridica').style.display = 'block';
+            }
+        }
+            </script>
+        
+    </head>
+    <body>
+        <div id="principal">
+            <label for="rgPFisica" >Pessoa f&iacute;sica</label>
+            <input type="radio" name="formato" onclick="mostra();" id="rgPFisica" value="F">
+            <label for="rgPJuridica">Pessoa jur&iacute;dica</label>
+            <input type="radio" name="formato" onclick="mostra();"id="rgPJuridica" value="J">
+        </div>
+        <div id="pFisica">
+            <label for="nmPessoa">Nome pessoa: </label>
+            <input type="text" id="nmPessoa"><br>
+            <label for="nrCPF">CPF: </label>
+            <input type="text" id="nrCPF">
+        </div>
+        <div id="pJuridica">
+            <label for="nmEmpresa">Nome empresa: </label>
+            <input type="text" id="nmEmpresa"><br>
+            <label for="nrCNPJ">CNPJ: </label>
+            <input type="text" id="nrCNPJ">
+        </div>
+    </body>
+</html>

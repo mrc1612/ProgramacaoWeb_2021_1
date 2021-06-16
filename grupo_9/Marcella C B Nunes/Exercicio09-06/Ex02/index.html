@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/classNumber.js"></script>
+        
+        <script>
+            var vNumber = "";
+
+            
+            function conta() {
+                var vTextA = document.getElementById("nmTextA").value;
+                
+                vText = new number(vTextA);
+                document.getElementById("mostra").innerHTML =
+                vText.getTamanho();
+            }
+            function mostra(){
+            var texto = document.getElementById("nmTextA");
+            document.getElementById("mostra").innerHTML = texto.value;
+            }
+        </script>
+</head>
+<body>
+        <label for="nmTextA">Digite letras ou números: </label>
+        <input type="text" onkeyup="mostra()" id="nmTextA"><br>
+        <button onClick="conta()">Contador</button>
+        <div id="mostra"></div><br>
+        
+</body>
+</html>
