@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input style="margin-top: 15px;" onkeyup="apresentar()" type="text" id="texto">
+        <button style="margin-right:20px;" onclick="quantidade()">Quantidade de letras</button>
+        <div style="margin-top: 15px;" id="palavra"></div>
+        <div style="margin-top: 15px;" id="quantidade"></div>
+    </body>
+    <script>
+        function apresentar(){
+            document.getElementById("palavra").innerHTML = document.getElementById("texto").value;
+        }
+        function quantidade(){
+            var contador = document.getElementById("texto").value;
+            document.getElementById("quantidade").innerHTML = "O tamanho do campo é: " + contador.length;
+        }
+    </script>
+</html> 

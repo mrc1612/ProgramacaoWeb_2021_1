@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input style="margin-top: 25px;" type="number" id="primeiro"></br>
+        <input style="margin-top: 25px;" type="number" id="segundo"></br>
+        <button style="margin-top: 25px;" onclick="somar()">Somar</button>
+        <button onclick="maiorNumero()">Número Maior</button>
+
+        <div style="margin-top: 25px;" id="soma"></div>
+        <div style="margin-top: 25px;" id="maior"></div>
+
+    </body>
+
+    <script>
+        function somar(){
+            var prim = document.getElementById("primeiro").value;
+            var seg = document.getElementById("segundo").value;
+            if(prim != "" && seg != ""){
+                var soma = parseInt(prim) + parseInt(seg);
+                document.getElementById("soma").innerHTML = "A soma dos números é:" + soma;
+            }else{
+                alert("São necessários dois números!");
+            }
+        }
+
+        function maiorNumero(){
+            var prim = document.getElementById("primeiro").value;
+            var seg = document.getElementById("segundo").value;
+            if(prim != "" && seg != ""){
+                if(parseInt(prim) > parseInt(seg)){
+                    document.getElementById("maior").innerHTML = "Primeiro número é maior";
+                    document.getElementById("maior").style.backgroundColor = "RED";
+                }
+                else if(parseInt(prim) < parseInt(seg)){
+                    document.getElementById("maior").innerHTML = "Segundo número é maior";
+                    document.getElementById("maior").style.backgroundColor = "green";
+                } else{
+                    document.getElementById("maior").innerHTML = "Ambos são iguais";
+                    document.getElementById("maior").style.backgroundColor = "yellow";
+                }
+            }else{
+                alert("São necessários dois números!");
+            }
+        }
+    </script>
+</html> 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="main">
+            <label for="pessoaFisica"> Pessoa f&iacute;sica</label>
+            <input onclick="exibirPFisica()" type="radio" name="formato" id="pessoaFisica" value="pf">
+            <label for="pessoaJuridica"> Pessoa jur&iacute;dica</label>
+            <input onclick="exibirPJuridica()" type="radio" name="formato" id="pessoaJuridica" value="pj">
+
+        </div>
+
+        <div style="margin-top: 15px; display: none;"  id="pFisica">
+            <div>
+                <label for="nome">Nome: </label>
+                <input type="text" id="nome"><br>
+            </div>
+            <div style="margin-top: 10px;" >
+                <label for="cpf">CPF: </label>
+                <input type="text" id="cpf">
+            </div>
+        </div>
+
+        <div style="margin-top: 15px; display: none;" id="pJuridica">
+            <div>
+                <label for="empresa">Empresa: </label>
+                <input type="text" id="empresa"><br>
+            </div>
+            <div style="margin-top: 10px;">
+                <label for="cnpj">CNPJ: </label>
+                <input type="text" id="cnpj">
+            </div>
+        </div>
+    </body>
+    <script>
+        function exibirPFisica(){
+            document.getElementById("pFisica").style.display = "block";
+            document.getElementById("pJuridica").style.display = "none";
+        }
+
+        function exibirPJuridica(){
+            document.getElementById("pFisica").style.display = "none";
+            document.getElementById("pJuridica").style.display = "block";
+        }
+
+    </script>
+</html> 
