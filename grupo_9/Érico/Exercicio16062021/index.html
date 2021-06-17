@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>JSON</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p ng-bind-html="funcionario.status"></p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>ID</td>
+          <td>NOME</td>
+          <td>DEPARTAMENTO</td>
+          <td>SALARIO</td>
+        </tr>
+        <tr ng-repeat="func in infoFunc">
+          <td ng-bind-html="func.id"></td>
+          <td ng-bind-html="func.nome"></td>
+          <td ng-bind-html="func.departamento"></td>
+          <td ng-bind-html="func.salario"></td>
+        </tr>
+        <tr>
+          <td colspan="3">Total</td>
+          <td>{{+totalSoma}}</td>
+        </tr>
+        <tr>
+          <td colspan="3">Média</td>
+          <td>{{+media}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      var app = angular.module("myApp", ["ngSanitize"]);
+      app.controller("myCtrl", function ($scope, $http) {
+        $http.get("empresa2.json").then(function (response) {
+          $scope.infoFunc = response.data;
+
+          $scope.totalSoma = 0;
+
+          var qtdElementos = 0;
+          for (var i = 0; i < $scope.infoFunc.length; i++) {
+            $scope.totalSoma = $scope.totalSoma + +$scope.infoFunc[i].salario;
+            qtdElementos++;
+          }
+
+          $scope.media = $scope.totalSoma / qtdElementos;
+        });
+      });
+    </script>
+  </body>
+</html>
