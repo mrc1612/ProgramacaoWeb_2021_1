@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>		   
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Trabalho 16-06 - Cristian</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+	   
+		<link
+		  rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		/>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<table class="table table-bordered table-striped">									
+				<tr>				
+					<td>ID</td>
+					<td>NOME</td>
+					<td>DEPARTAMENTO</td>
+					<td>SALARIO</td>
+				</tr>	 
+				<tr ng-repeat="idx in infoFunc">
+					<td ng-bind-html="idx.id"></td>
+					<td ng-bind-html="idx.nome"></td>
+					<td ng-bind-html="idx.departamento"></td>
+					<td ng-bind-html="idx.salario"></td>
+				</tr>
+				<tr>
+					<td colspan="3">Soma: </td>
+					<td>{{+soma}}</td>
+				</tr>
+				<tr>
+					<td colspan="3">Média: </td>
+					<td>{{+media}}</td>
+				</tr>
+			</table>
+		</div>
+	   
+		<script>
+		var app = angular.module("myApp", ["ngSanitize"]);
+		app.controller("myCtrl", function ($scope, $http) {
+		  $http.get("empresa2.json").then(function (response) {
+			$scope.infoFunc = response.data;
+			var quantidade = 0;
+			$scope.soma = 0;
+			for (var i = 0; i < $scope.infoFunc.length; i++) {
+			  $scope.soma += $scope.infoFunc[i].salario;
+			}
+			$scope.media = $scope.soma / quantidade;
+		  });
+		});
+		</script>
+	</body>	 
+</html>
