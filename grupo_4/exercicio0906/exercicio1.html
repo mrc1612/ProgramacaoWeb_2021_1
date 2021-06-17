@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <label for="n1">Número 1: </label>
+        <input type="number" id="n1"><br>
+        <label for="n2">Número 2: </label>
+        <input type="number" id="n2"><br>
+        <button onclick="somar(n1.value,n2.value)">SOMAR</button>
+        <div>
+            <h1 id="soma"></h1>
+        </div>
+        <button onclick="comparar(n1.value,n2.value)">COMPARAR NÚMEROS</button>
+        <div>
+            <h1 id="resultado"></h1>
+        </div>
+
+        <script>
+            function somar(n1, n2){
+                var soma = Number(n1) + Number(n2)
+                document.getElementById("soma").innerHTML = soma;
+            }
+            function comparar(n1,n2){
+                if (n1 > n2){
+                    document.getElementById("resultado").innerHTML = "Primeiro número é maior";
+                    document.getElementById("resultado").style.backgroundColor = 'red';
+                }
+                else if(n1 < n2) {
+                    document.getElementById("resultado").innerHTML = "Segundo número é maior";
+                    document.getElementById("resultado").style.backgroundColor = 'green';
+                }
+                else if(n1 == n2){
+                    document.getElementById("resultado").innerHTML = "Ambos são iguais";
+                    document.getElementById("resultado").style.backgroundColor = 'yellow';
+                }
+            }
+        </script>
+
+    </body>
+</html>
