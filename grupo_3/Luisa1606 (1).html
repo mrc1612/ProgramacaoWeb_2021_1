@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <table class="table table-bordered table-striped">
+      <tr ng-repeat="info in infoFunc">
+        <td ng-bind-html="info.id"></td>
+        <td ng-bind-html="info.nome"></td>
+        <td ng-bind-html="info.dept"></td>
+        <td ng-bind-html="info.salario"></td>
+      </tr>
+      <tr>
+        <td colspan="3">Soma</td>
+        <td ng-bind-html="soma"></td>
+      </tr>
+      <tr>
+        <td colspan="3">Média</td>
+        <td ng-bind-html="media"></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    var app = angular.module("myApp", ["ngSanitize"]);
+    app.controller("myCtrl", function ($scope, $http) {
+      $http.get("empresa2.json").then(function (response) {
+        $scope.infoFunc = response.data;
+        var qntd = Object.keys(response.data).length;
+        var soma = 0;
+        for (i = 0; i < qntd; i++) {
+          soma += response.data[i].salario;
+        }
+        $scope.soma = soma;
+        $scope.media = soma / qntd;
+      });
+    });
+  </script>
+</html>
