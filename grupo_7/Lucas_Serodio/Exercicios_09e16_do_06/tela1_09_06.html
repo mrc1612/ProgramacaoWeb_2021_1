@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela 1</title>
+</head>
+<style>
+    body, html {
+        background-color: lightslategrey;
+        color: azure;
+    }
+
+    #numero1_id, #numero2_id {
+        margin-top: 5px;
+    }
+</style>
+<body>
+    <label for="numero1">Digite um número:</label>
+    <input type="number" name="numero1" id="numero1_id">
+    <br>
+    <label for="numero2">Digite um número:</label>
+    <input type="number" name="numero2" id="numero2_id">
+    <br><br>
+    <button onclick="somarValores()">Somar</button>
+    <br>
+    <p id="resultado1">-</p>
+    <p>--------------------</p>
+    <button onclick="compararValores()">Comparar</button>
+    <br>
+    <p id="resultado2">-</p>
+    <p>--------------------</p>
+</body>
+<script>
+    function somarValores() {
+        var n1 = parseInt(document.getElementById('numero1_id').value);
+        var n2 = parseInt(document.getElementById('numero2_id').value);
+        document.getElementById('resultado1').innerHTML = "Resultado: " + (n1 + n2);
+    }
+
+    function compararValores() {
+        var n1 = parseInt(document.getElementById('numero1_id').value);
+        var n2 = parseInt(document.getElementById('numero2_id').value);
+
+        if (n1 > n2) {
+            document.getElementById('resultado2').innerHTML = "O primeiro número é maior!";
+            document.getElementById('resultado2').style.color = "red";
+        } 
+        if (n1 < n2) {
+            document.getElementById('resultado2').innerHTML = "O segundo número é maior!";
+            document.getElementById('resultado2').style.color = "green";
+        } 
+        if (n1 == n2) {
+            document.getElementById('resultado2').innerHTML = "Ambos são iguais!";
+            document.getElementById('resultado2').style.color = "yellow";
+        }
+    }
+</script>
+</html>

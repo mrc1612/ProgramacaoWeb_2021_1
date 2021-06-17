@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="myController">
+        <input id="texto_entrada" type="text" ng-keyup="mostraTexto()">
+        <button id="btn_tamanho" type="submit" ng-click="mostraTamanho()">Mostrar tamanho do texto</button>
+        <p>{{textoSaida}}</p>
+        <p>{{tamanhoTexto}}</p>
+    </body>
+    <script>
+        
+        var app = angular.module('myApp', []);
+        app.controller('myController', function($scope) {
+            $scope.mostraTexto = function(){
+                $scope.textoSaida = document.getElementById("texto_entrada").value;
+            }
+            $scope.mostraTamanho = function(){
+                $scope.tamanhoTexto = "Tamanho do texto: " + 
+                                       document.getElementById("texto_entrada").value.length + 
+                                       (document.getElementById("texto_entrada").value.length > 1
+                                       ? " caracteres" : " caracter");
+            }
+        })
+    </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Sal&aacute;rios dos funcion&aacute;rios</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table class="table table-dark table-bordered table-striped">
+            <tr ng-repeat="funcionario in info">
+                <td ng-bind-html="funcionario.id"></td>
+                <td ng-bind-html="funcionario.nome"></td>
+                <td ng-bind-html="funcionario.departamento"></td>
+                <td ng-bind-html="funcionario.salario.toFixed(2)"></td>
+            </tr>
+            <td>|</td>
+            <td>|</td>
+            <td>|</td>
+            <td>Soma dos sal&aacute;rios: {{soma.toFixed(2)}}<br>
+              M&eacute;dia dos sal&aacute;rios: {{media.toFixed(2)}}
+            </td>
+            <td></td>
+        </table>
+    <script>
+        var app = angular.module('myApp', ['ngSanitize']);
+        app.controller('myCtrl', function($scope, $http) {
+          $http.get("empresa2.json")
+          .then(function(response) {
+              $scope.info = response.data;
+              $scope.soma = 0;
+              $scope.media = 0;
+              for (let i = 0; i < $scope.info.length; i++) {
+                $scope.soma += $scope.info[i].salario;
+              }
+
+              $scope.media = $scope.soma / $scope.info.length;
+          });
+        });
+    </script>
+</body>
+</html>
