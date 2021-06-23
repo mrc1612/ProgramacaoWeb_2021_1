@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="text" name="texto" id="texto" onkeyup="digitar()"></input>
+        <button onclick="total()">Tamanho</button>
+        <p id="dig"></p>
+        <p id="total"></p>
+    </body>
+
+    <script>
+        function digitar(){
+            var tex= document.getElementById("texto").value;
+            document.getElementById("dig").innerHTML = tex;
+        }
+
+        function total(){
+            var tam = document.getElementById("texto").value;
+            document.getElementById("total").innerHTML = "Total de caracteres: " + tam.length;
+        }
+    </script>
+</html>
