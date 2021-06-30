@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link href="../../assets/fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/brands.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+
+    <!-- VueJs-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Multimidia</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <caption>
+                <ul class="main-title pt-3">
+                    <a class="nav-link d-flex" href="./main.html">
+                        <img src="https://i.pinimg.com/originals/8d/31/44/8d31440ebf18d6588c4e005a0c187240.png"
+                            class="img-fluid rounded-circle logo">
+                        <li class="nav-item">
+                            <h1>PLANTS.</h1>
+                        </li>
+                    </a>
+                </ul>
+            </caption>
+
+            <div class="logged-user">
+                <a id="user-img" class="nav-link" href="./usuario.html"><img src="https://i.redd.it/cm7v4jwetbt21.png"
+                        class="rounded logged-img"></a>
+                <div>
+                    <h5 class="logged-name">
+                        {{loggedUserName}} <br>
+                        <a class="nav-link" @Click="logout"><i class="fas fa-sign-out-alt logoff"></i></a>
+                    </h5>
+                </div>
+            </div>
+        </header>
+
+        <div class="container mt-4 d-block">
+            <section>
+                <div class="d-block">
+                    <div>
+                        <iframe width="425" height="344" src="https://www.youtube.com/embed/Es8QSe48H3Y" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div>
+                        <video width="320" height="240" controls="controls">
+                            <source src="../assets/sample-mp4-file.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    <div>
+                        <audio width="320" height="240" controls="controls">
+                            <source src="../assets/file_example_MP3_700KB.mp3" type="video/mp4" />
+                        </audio>
+                    </div>
+                    <iframe src="../assets/sample (1).pdf" width="800" height="500" style="border: none;"></iframe>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <site-footer></site-footer>
+
+
+    <script src="../components/footer.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                loggedUserName: "",
+            },
+            created() {
+                let username = this.getCookie("username");
+                if (username != "") {
+                    this.loggedUserName = username;
+                }
+            },
+            methods: {
+                getCookie(cname) {
+                    var name = cname + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                },
+                logout() {
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                    this.loggedUserName = "";
+                    location.href = './main.html';
+                },
+            }
+        })
+    </script>
+
+</body>
+
+</html>

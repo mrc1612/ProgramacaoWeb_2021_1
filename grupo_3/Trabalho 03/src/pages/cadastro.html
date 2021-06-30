@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- Fonte do texto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link href="../../assets/fontawsome/css/fontawesome.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/brands.css" rel="stylesheet">
+    <link href="../../assets/fontawsome/css/solid.css" rel="stylesheet">
+    <!-- Classe de estilo principal -->
+    <link rel="stylesheet" href="../styles/style.css" />
+    <!-- Bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+
+    <!-- VueJs-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div id="app">
+        <header class="header">
+            <caption>
+                <ul class="main-title pt-3">
+                    <a class="nav-link d-flex" href="./main.html">
+                        <img src="https://i.pinimg.com/originals/8d/31/44/8d31440ebf18d6588c4e005a0c187240.png"
+                            class="img-fluid rounded-circle logo">
+                        <li class="nav-item">
+                            <h1>PLANTS.</h1>
+                        </li>
+                    </a>
+                </ul>
+            </caption>
+
+            <div class="logged-user">
+                <a id="user-img" class="nav-link" href="./usuario.html"><img src="https://i.redd.it/cm7v4jwetbt21.png"
+                        class="rounded logged-img"></a>
+                <div>
+                    <h5 class="logged-name">
+                        {{loggedUserName}} <br>
+                        <a class="nav-link" @Click="logout"><i class="fas fa-sign-out-alt logoff"></i></a>
+                    </h5>
+                </div>
+            </div>
+        </header>
+        <div class="container mt-4">
+            <section>
+                <form autocomplete="off">
+
+                    <h1>Cadastro</h1>
+                    <p class="subtitle">Visualize e altere suas plantas cadastradas ou adicione uma nova</p>
+
+
+                    <div class="d-flex mt-5">
+                        <div class="register w-100">
+                            <div class="row">
+
+                                <div class="col-md">
+                                    <label for="specie" class="form-label validation-error hide"
+                                        id="validationError">Espécie da planta</label>
+                                    <div class="input-group mb-3 ">
+                                        <input v-model="rowData.name" type="text" class="form-control" id="specie">
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <label for="age" class="form-label validation-error hide" id="validationError">Idade
+                                        da
+                                        planta (anos)</label>
+                                    <div class="input-group mb-3 ">
+                                        <input v-model="rowData.age" type="text" class="form-control" id="age">
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <label for="contact" class="form-label validation-error hide"
+                                        id="validationError">Telefone para contato</label>
+                                    <div class="input-group mb-3">
+                                        <input v-model="rowData.phone" type="text" class="form-control" id="contact"
+                                            placeholder="(00)9000-00000 ou (00)3000-0000">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <a class="btn btn-secondary register-button" @Click="add()">Cadastrar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+
+            <!-- Tabela -->
+            <section class="mt-5">
+                <div class="table-responsive">
+                    <table class="table table-light table-striped table-hover " id="minhasPlantas">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ações</th>
+                                <th scope="col">Espécie</th>
+                                <th scope="col">Idade</th>
+                                <th scope="col">Contato</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-content" v-for="data in tableData">
+                            <tr>
+                                <th scope="row" class="column-id">{{ data.id }}</th>
+                                <td>
+                                    <a class="btn btn-info" @Click="edit(data)">A</a>
+                                    <a class="btn btn-danger" @Click="remove(data)">D</a>
+                                </td>
+                                <td>{{ data.name }}</td>
+                                <td>{{ data.age }}</td>
+                                <td>{{ data.phone }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <site-footer></site-footer>
+    </div>
+
+    <script src="../components/footer.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                tableData: [
+                    {
+                        id: 1,
+                        name: "Costela de Adão",
+                        age: 3,
+                        phone: "(00)00000-0000"
+                    }
+                ],
+                rowData: {},
+                editing: false,
+                loggedUserName: "",
+            },
+            created() {
+                let username = this.getCookie("username");
+                if (username != "") {
+                    this.loggedUserName = username;
+                }
+            },
+            methods: {
+                edit(data) {
+                    this.editing = true;
+                    this.rowData = data;
+                },
+                add() {
+                    if (!this.hasErrors()) {
+                        if (!this.editing) {
+                            this.rowData.id = this.tableData.length + 1;
+                            this.tableData.push(this.rowData);
+                        } else {
+                            var editedRow = this.tableData.find(f => f.id == this.rowData.id);
+                            editedRow.name = this.rowData.name;
+                            editedRow.age = this.rowData.age;
+                            editedRow.phone = this.rowData.phone;
+                            this.editing = false;
+                        }
+                        this.rowData = {};
+                    }
+                },
+                remove(data) {
+                    let index = this.tableData.findIndex(fIndex => fIndex.id == data.id);
+
+                    if (index >= 0) {
+                        if (confirm('Tem certeza que deseja deletar esse registro?')) {
+                            this.tableData.splice(index, 1);
+                        }
+                    }
+                },
+                getCookie(cname) {
+                    var name = cname + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                },
+                logout() {
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+                    this.loggedUserName = "";
+                    location.href = './main.html';
+                },
+                hasErrors() {
+                    var errors = true;
+                    var feedback = "";
+
+                    var hasName = this.rowData.name && this.rowData.name != "";
+                    var hasAge = this.rowData.age && this.rowData.age != "";
+                    var hasPhone = this.rowData.phone && this.rowData.phone != "";
+
+                    if (!hasName || !hasAge || !hasPhone) {
+                        errors = true;
+                        feedback = "Todos os campos devem estar preenchidos!";
+                    } else {
+                        validAge = this.validateOnlyNumbers(this.rowData.age);
+                        validContact = this.validateContact(this.rowData.phone);
+
+                        if (!validAge)
+                            feedback = "Campo idade não pode conter letras!";
+                        else if (!validContact)
+                            feedback = "Número de telefone inválido!";
+
+                        errors = !validAge || !validContact;
+                    }
+
+                    this.displayFeedback(feedback);
+                    return errors;
+                },
+                validateOnlyNumbers(input) {
+                    return /^\d+$/.test(input);
+                },
+                validateContact(contact) {
+                    var regex = new RegExp('^\\([0-9]{2}\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{3}-[0-9]{5}))$');
+                    return regex.test(contact);
+                },
+                displayFeedback(msg) {
+                    if (msg != "")
+                        alert(msg);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
