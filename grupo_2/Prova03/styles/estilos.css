@@ -1,0 +1,50 @@
+* {
+  margin: 0px;
+  font-size: 20x;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f0f4f5;
+}
+
+main {
+  margin-left: 200px; /* because of the nav */
+  margin-top: 100px; /* because of the header */
+  width: calc(100% - 200px);
+  position: absolute;
+}
+
+section {
+  margin: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+main section .container {
+  max-width: 100% !important;
+}
+
+main section .container .btn {
+  width: 100%;
+}
+
+section .table {
+  margin: 0px;
+}
+
+@media (max-width: 767px) {
+  main{
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .table {
+    font-size: 2.1vw;
+  }
+}
+
+.responsive-aux-main {
+  width: calc(100% - 200px);
+  margin-left: 200px;
+}

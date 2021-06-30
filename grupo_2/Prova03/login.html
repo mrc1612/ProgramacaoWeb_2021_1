@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/estilos.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/sidebar.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link rel="stylesheet" href="./styles/rodape.css">
+    <link rel="stylesheet" href="./styles/login.css">
+    <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/responsive.js"></script>
+    <script src="./repository/profile.json"></script>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <div class="header-buttons">
+            <img src="./imagens/bars.png" class="bars" onclick="showMenu()">
+            
+            <a class="logo">
+                <img class="img" src="./imagens/github.png">
+            </a>
+        </div>
+        
+        <a class="perfil" id="profile-photo" href="pagina-inicial.html">
+            <img class="foto" src="./imagens/user2.jpg">
+        </a>
+    </header>
+    
+    <nav class="sidebar" id="sidebar">
+        
+        <ul>
+            <li>
+                <a href="./pagina-inicial.html">
+                    <div class="item">Voltar</div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main id="main">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 m-auto">
+                        <form onsubmit="loginFunction()">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Login</label>
+                                <input type="text" class="form-control" name="login" id="loginCampo" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Senha</label>
+                                <input type="password" name="password" class="form-control" id="senhaCampo"/>
+                            </div>
+                            <div class="form-group">
+                                <small id="capsIndicator">Caps Lock ativo</small>
+                            </div>
+                            <button type="submit" class="col-3 btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="rodape">Felipe, Jennyfer e Pablo</footer>
+    <script src="./scripts/login.js"></script>
+</body>
+</html>
