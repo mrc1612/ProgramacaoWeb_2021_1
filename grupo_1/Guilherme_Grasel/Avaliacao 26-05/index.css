@@ -1,0 +1,19 @@
+#form {
+    text-align: center;
+    width: 250px;
+}
+
+img {
+    background-color: black;
+}
+
+#email {
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gray;
+}
+
+#nome {
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
