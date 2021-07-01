@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+<body>
+    <div>
+        <form>
+            <input type="number"; id="v1">
+            <input type="number"; id="v2">
+            <button type="button"; onclick="soma()">Calcular</button>
+            <div id="resultado"></div>
+            <button type="button"; onclick="verifica()">Verificar</button>
+            <div id="verificar"></div>
+        </form>
+    </div>
+</body>
+
+<script>
+    function soma(){
+        var n1 = parseInt(document.getElementById("v1").value);
+        var n2 = parseInt(document.getElementById("v2").value);
+        var resultado = n1 + n2;
+        document.getElementById('resultado').innerHTML = "Resultado = " + resultado;
+    }
+
+    function verifica(){
+        var n1 = parseInt(document.getElementById("v1").value);
+        var n2 = parseInt(document.getElementById("v2").value);
+        var resultado = document.getElementById("verificar");
+        
+        if(n1 == n2){
+            resultado.innerHTML = "Iguais";
+            resultado.style.backgroundColor = "yellow"
+        }
+
+        if(n1 > n2){
+            resultado.innerHTML = "Primeiro é maior";
+            resultado.style.backgroundColor = "red"
+        }
+
+        if(n2 > n1){
+            resultado.innerHTML = "Segundo é maior";
+            resultado.style.backgroundColor = "green"
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+</head>
+<body>
+    <div ng-app="">
+        <p><input type="text" ng-model="input" autofocus id="inputPalavra"></p>
+        <p ng-bind="input"></p>
+        <button onclick="calcular()">Calcular</button>
+        <br>
+        <div id="tamanho"></div>
+    </div>   
+</body>
+<script>
+    function calcular(){
+      var tamanho = document.getElementById("tamanho")
+      document.getElementById("tamanho").innerHTML = "Tamanho da palavra é de " +  document.getElementById("inputPalavra").value.length
+    }
+</script>
+</html>
