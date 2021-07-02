@@ -1,0 +1,77 @@
+*{
+    background-color: lavender;
+}
+
+.videoYT{
+    text-align: center;
+    position: relative; 
+    height: 100px; 
+}
+
+.videoPc{
+    text-align: center;
+    position: relative; 
+    height: 100px; 
+    display: none;
+}
+
+.audio{
+    text-align: center;
+    position: relative; 
+    height: 100px; 
+    display: none;
+}
+
+.pdf{
+    text-align: center;
+    position: relative; 
+    height: 100px;
+    display: none;
+}
+
+.btn-videoYT{
+    width: 150px;
+    padding: 8px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: yellow;
+    font-size: 18px;
+    position:absolute;
+    top: 325px;
+    left: 860px;
+}
+
+.btn-videoPc{
+    width: 150px;
+    padding: 8px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: red;
+    font-size: 18px;
+    position:absolute;
+    top: 250px;
+    left: 855px;
+}
+.btn-audio{
+    width: 150px;
+    padding: 8px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: green;
+    font-size: 18px;
+    position:absolute;
+    top: 60px;
+    left: 850px;
+}
+.btn-pdf{
+    width: 150px;
+    padding: 8px 12px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: purple;
+    font-size: 18px;
+    position:absolute;
+    top: 510px;
+    left: 860px;
+}
+

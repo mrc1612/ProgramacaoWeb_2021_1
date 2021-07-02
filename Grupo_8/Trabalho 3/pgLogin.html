@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="imgs/icone.ico" type="image/x-icon">
+    <title>Login</title>
+    <link rel="stylesheet" href="estiloLogin.css">
+    <link rel="shortcut icon" href="imgs/icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="content content-cadastro"> 
+            <div class="column">
+                <br><br><br>
+                <h2 class="title">fazer login</h2>
+                <div class="social-media">
+                    <ul class="list-social-media">
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-facebook-f"></i>        
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-google-plus-g"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-linkedin-in"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-twitter"></i>
+                            </li>
+                        </a>
+                        <a class="link-social-media" href="#">
+                            <li class="item-social-media">
+                                <i class="fab fa-reddit-square"></i>
+                            </li>
+                        </a>
+                    </ul>
+                </div><!-- social media -->
+                <p class="description">ou use seu email para entrar</p>
+                <form class="form"; name="formCadastro";>         
+                    <label class="label-input" for="usuario">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input type="usuario" placeholder="E-mail" name="usuario" id="usuario">
+                    </label>
+                    <label class="label-input" for="senha">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input type="password" placeholder="Senha" id="senha" onkeypress="verificaCapsLock()">
+                        <p id="msgCapsLock">Caps Lock On</p>
+                    </label>
+                </form>
+                <button type="button"; class="btn"; onclick="fazerLogin()">logar</button>
+                <br>
+            <div>
+                <a class="esqueceuCadastro" href="#">Esqueci meu login</a>
+                <a class="esqueceuCadastro" href="#">Esqueci minha senha</a>
+            </div>
+            </div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>

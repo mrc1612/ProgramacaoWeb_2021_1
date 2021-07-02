@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <head>    
+        <link rel="stylesheet" href="estiloCadastro.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="icone.ico" type="image/x-icon">
+        <a href="pgInicial.html"><img src="logo.png" alt="logo"></a>
+        <link rel="shortcut icon" href="imgs/icone.ico" type="image/x-icon">
+        <title>Trabalho Web</title>    
+    </head>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form onsubmit="event.preventDefault(); envioForm();" autocomplete="off">
+                    <div>
+                        <label>Filme</label><label class="validation-error hide" id="nomeFilmeValidationError"></label>
+                        <input type="text" name="nomeFilme" id="nomeFilme" required>
+                    </div>
+                    <div>
+                        <label>Diretor</label>
+                        <input type="text" name="nomeDiretor" id="nomeDiretor" required>
+                    </div>
+                    <div>
+                        <label>Lançamento</label>
+                        <input type="text" name="dataLancamento" id="dataLancamento" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" required>
+                    </div>
+                    <div>
+                        <label>Bilheteria</label>
+                        <input type="text" name="bilheteria" id="bilheteria" required>
+                    </div>
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Cadastrar">
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="filmeLista">
+                    <thead>
+                        <tr>
+                            <th>Nome filme</th>
+                            <th>Nome diretor</th>
+                            <th>Data de lançamento</th>
+                            <th>Bilheteria mundial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script src="script.js"></script>
+    <footer>Equipe: Jéssica, Vinícius e Wagner</footer>
+</body>
+</html>

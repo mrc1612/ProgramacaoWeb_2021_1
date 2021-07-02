@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estiloMultimedia.css">
+  <a href="pgInicial.html"><img src="logo.png" alt="logo"></a>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container-1">
+    <div id="videoYT" class="videoYT">  
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Es8QSe48H3Y?start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <button id="btn-videoYT" class="btn-videoYT" onclick="alterarVideoYT()">Próximo</button>
+    </div>
+
+    <div class="videoPc" id="videoPc">
+      <video controls="controls">
+        <source src="sample-mp4-file.mp4" type="video/mp4">
+      </video>
+      <button id="btn-videoPc" class="btn-videoPc" onclick="alterarVideoPC()">Próximo</button>
+    </div>
+
+    <div class="audio" id="audio"> 
+      <audio controls="controls">
+        <source src="file_example_MP3_700KB.mp3" type="audio/mp3" />
+      </audio>
+      <button id="btn-audio" class="btn-audio" onclick="alterarAudio()">Próximo</button>
+    </div>
+
+    <div class="pdf" id="pdf">  
+      <embed src="sample.pdf" width="800px" height="500px"/>
+      <button id="btn-pdf" class="btn-pdf" onclick="alterarPdf()">Próximo</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
