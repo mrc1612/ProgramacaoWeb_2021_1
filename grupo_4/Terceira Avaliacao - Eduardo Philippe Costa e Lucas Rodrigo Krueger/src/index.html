@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lucas R Krueger e Eduardo P Costa</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="./scripts/cookie.js"></script>
+    <script src="./scripts/login.js"></script>
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html"><img class="image" src="./media/google_black_logo_icon_147125.png"></a>
+        <a class="user" id="login-btn">Login</a>
+        <a class="user" id="user-form-btn"><img class="image" src="./media/17004.png"></a>
+    </header>
+    <nav id="navbar">
+        <div id="nav-radio">
+            <input type="radio" id="normal" name="siteCustom" value="normal" onchange="radioChange()" checked>
+            <label for="normal">Normal</label>
+            <input type="radio" id="custom" name="siteCustom" value="custom" onchange="radioChange()">
+            <label for="custom">Custom</label>
+        </div>
+        <div id="nav-buttons">
+            <a href="#" id="sobre">Sobre</a>
+            <a href="multimidia.html" id="multimidia">Multimídia</a>
+        </div>
+    </nav>
+    <section>
+        <article class="lottie-file">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_aeo5ikeu.json"  background="transparent" speed="1" style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
+        </article>
+        <h2>Modal Example</h2>
+
+<!-- Login Modal -->    
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-login">&times;</span>
+            <div class="modal-header">
+                <h3>Login</h3>
+            </div>
+            <div class="modal-container">
+                <div class="fields">
+                <div class="form-input-material">
+                    <label for="usuario">Usuário</label>
+                    <input id="usuario" class="form-control-material" type="text" onfocusout="avisoCapsLock()" autocomplete="off">
+                    <label id="capsOn">Caps Lock ativado</label>
+                </div>
+                <div class="form-input-material">
+                    <label for="senha">Senha</label>
+                    <input id="senha" class="form-control-material" type="password" autocomplete="off">
+                </div>
+                <div class="button-container-login">
+                    <a class="btn-modal" id="btn-esqueci-login" type="button" >Esqueci meu Login</a>
+                    <a class="btn-modal" id="btn-esqueci-senha" type="button" >Esqueci minha Senha</a>
+                </div>
+                <div class="btn-login">
+                    <a class="btn-modal" id="btn-login" type="button" onclick="login()">Login</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal -->
+
+<!-- User Modal -->    
+<div id="user-modal" class="modal">
+    <div class="modal-content-user">
+        <span class="close-user">&times;</span>
+        <div class="modal-header">
+            <h3>Usuário</h3>
+        </div>
+        <div class="modal-container">
+            <div class="fields">
+            <div class="form-input-material">
+                <label for="nome">Nome</label>
+                <input id="nome" class="form-control-material" type="text" autocomplete="off">
+            </div>
+            <div class="form-input-material">
+                <label for="email">E-mail</label>
+                <input id="email" class="form-control-material" type="email" autocomplete="off">
+            </div>
+            <div class="form-input-material">
+                <label for="cargo">Cargo</label>
+                <input id="cargo" class="form-control-material" type="cargo" autocomplete="off">
+            </div>
+            <div class="form-input-material">
+                <label for="ativo">Ativo</label>
+                <input id="ativo" class="form-control-material" type="checkbox" autocomplete="off">
+            </div>
+            <div class="form-input-material">
+                <label for="dtNascimento">Data Nascimento</label>
+                <input id="dtNascimento" class="form-control-material" type="date" autocomplete="off">
+            </div>
+            <div class="button-container">
+                <a class="btn-modal" id="salvar" type="button" onclick="salvar()" >Salvar</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+    </section>
+    <footer>
+        <i class="fab fa-github fa-2x"></i>
+        <a id="git-lucas" href="https://github.com/LucasRKrueger">Lucas Krueger</a>
+        <a id="git-dup" href="https://github.com/EduardoPhilippeCosta">Eduardo Costa</a>
+    </footer>
+    <script src="./scripts/modal.js"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>

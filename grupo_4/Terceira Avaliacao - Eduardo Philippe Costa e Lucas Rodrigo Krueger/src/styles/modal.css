@@ -1,0 +1,97 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #b8b5ff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 23rem;
+    height: 25rem;
+    border-radius: 4px;
+  }
+
+.modal-content-user {
+    background-color: #b8b5ff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 23rem;
+    height: 29rem;
+    border-radius: 4px;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+.modal-container{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.fields{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+input{
+  border-radius: 5px;
+  border:none
+}
+.btn-modal{
+  color: #fff;
+  margin-right: 1rem;
+  padding: 5px 15px 5px 15px;
+  border-radius: 10px;
+  background-color: #7868e6;
+  transition: 500ms
+}
+.btn-modal:hover{
+  color: #edeef7;
+  border: 0.15;
+  background-color: #4a47a3;
+}
+
+input:focus{
+  outline: none;
+}
+
+.button-container{
+  display: flex;
+  width: 80%;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+  /* The Close Button */
+  .close-login, .close-user {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-login:hover,
+  .close-user,
+  .close-login:focus,
+  .close-user:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

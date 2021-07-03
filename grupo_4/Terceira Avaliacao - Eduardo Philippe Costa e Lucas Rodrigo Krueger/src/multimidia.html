@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lucas R Krueger e Eduardo P Costa</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/cadastro.css">
+    <link rel="stylesheet" href="./styles/modal.css">
+    <!--<script src="./scripts/cadastro.js"></script> -->
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html"><img class="image"  src="./media/google_black_logo_icon_147125.png"></a>
+        <a class="user" id="user-form-btn"><img class="image"  src="./media/17004.png"></a>
+    </header>
+    <nav>
+        <a href="#" id="sobre">Sobre</a>
+        <a href="index.html" id="voltar">Voltar</a>
+    </nav>
+    <section>
+        <article>
+            <label>Vídeo do Youtube</label>
+            <iframe width="500" height="250"
+                src="https://www.youtube.com/embed/Es8QSe48H3Y">
+            </iframe>
+        </article>
+
+        <article>
+            <label>Vídeo MP4</label>
+            <video width="500" height="250" controls>
+                <source src="media/sample-mp4-file.mp4" type="video/mp4">
+            </video>
+        </article>
+
+        <article>
+            <label>Áudio MP3</label>
+            <audio width="500" height="250" controls>
+                <source src="media/file_example_MP3_700KB.mp3" type="audio/mp3">
+            </audio>
+        </article>
+
+        <article>
+            <label>PDF</label>
+            <iframe width="800" height="500"
+                src="media/sample.pdf">
+            </iframe>
+        </article>
+
+<!-- User Modal -->    
+<div id="user-modal" class="modal">
+<div class="modal-content-user">
+    <span class="close-user">&times;</span>
+    <div class="modal-header">
+        <h3>Usuário</h3>
+    </div>
+    <div class="modal-container">
+        <div class="fields">
+
+        <div class="form-input-material">
+            <label for="nome">Nome</label>
+            <input id="nome" class="form-control-material" type="text" autocomplete="off">
+        </div>
+        <div class="form-input-material">
+            <label for="email">E-mail</label>
+            <input id="email" class="form-control-material" type="email" autocomplete="off">
+        </div>
+        <div class="form-input-material">
+            <label for="cargo">Cargo</label>
+            <input id="cargo" class="form-control-material" type="cargo" autocomplete="off">
+        </div>
+        <div class="form-input-material">
+            <label for="ativo">Ativo</label>
+            <input id="ativo" class="form-control-material" type="checkbox" autocomplete="off">
+        </div>
+        <div class="form-input-material">
+            <label for="dtNascimento">Data Nascimento</label>
+            <input id="dtNascimento" class="form-control-material" type="date" autocomplete="off">
+        </div>
+        <div class="button-container">
+            <a class="btn-modal" id="salvar" type="button" >Salvar</a>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal -->
+    </section>
+    <footer>
+        <i class="fab fa-github fa-2x"></i>
+        <a id="git-lucas" href="https://github.com/LucasRKrueger">Lucas Krueger</a>
+        <a id="git-dup" href="https://github.com/EduardoPhilippeCosta">Eduardo Costa</a>
+    </footer>
+    <script src="./scripts/modal-user.js"></script>
+</body>
+</html>

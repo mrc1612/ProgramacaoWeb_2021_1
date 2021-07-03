@@ -1,0 +1,166 @@
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background-color: #edeef7;
+    margin: 0 auto;
+}
+label{
+    margin: 5px 5px 9px 0px;
+}
+
+header{
+    background-color: #7868e6;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-grow: 0;
+} 
+
+nav{
+    background-color: #b8b5ff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: #edeef7;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #7868e6;
+    cursor: pointer;
+}
+
+footer{
+    background-color: #7868e6;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    flex-grow: 0;
+}
+
+article{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+section{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    height: calc(100vh - 166px);
+    overflow: auto;
+}
+
+h2{
+    color: #edeef7;
+    margin: 0;
+}
+
+.image{
+    width: 40px;
+    height: 40px;
+}
+
+.lottie-file{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 166px);
+}
+
+.user{
+    margin-left: auto;
+    padding-right: 8px;
+    padding-bottom: 2px;
+}
+
+.user:hover{
+    color: #b8b5ff;
+
+}
+
+.form-input-material{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.btn-login{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+}
+
+.button-container-login{
+    display: flex;
+    width: 100%;
+    padding-top: 1rem;
+    justify-content: space-between;
+}
+
+.button-container{
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+}
+.button-container-login .btn-modal{
+    margin-top: 1rem;
+    padding: 3px !important;
+}
+
+#nav-radio{
+    margin-left: 20px;
+    width: 50%;
+    color: #fff !important;
+    background-color: #b8b5ff !important;
+}
+
+#nav-buttons{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 25px;
+    background-color: #b8b5ff !important;
+}
+
+#logo{
+    padding-left: 8px;
+}
+
+#cadastrar{
+    margin-left: 50px;
+}
+
+#multimidia{
+    margin-left: 50px;
+}
+
+#git-lucas{
+    margin-left: 15px;
+    margin-right: 25px;
+}
+#git-lucas:hover{
+    color: #b8b5ff;
+}
+
+#git-dup:hover{
+    color: #b8b5ff;
+}
