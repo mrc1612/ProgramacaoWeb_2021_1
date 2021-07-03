@@ -1,0 +1,179 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #ef8d32;
+    color: white;
+    
+  }
+
+a:link {
+    color: white;
+ }
+ 
+ /* link que foi visitado */
+a:visited {
+     color: white;
+ }
+ 
+ /* mouse over */
+a:hover {
+     color: #98ddca;
+ }
+
+.nome {
+    position: absolute;
+    text-align: center;
+    width: 300px;
+    left: 35%;
+    top: -20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@media (max-width: 600px)
+{
+  .nome 
+   {
+    left: 10%;
+   }
+}
+
+html, body {
+    background-color: #98ddca;
+}
+
+.header {
+    position: fixed;
+    text-align: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #ef8d32;
+    color: white;
+    
+}
+
+.user {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 7px;
+}
+
+#nomes {
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+}
+
+.nav {
+    height: 100%; 
+    width: 125px; 
+    position: fixed; 
+    top: 40px; 
+    left: 0px;
+    background-color: #2f5d62; 
+    padding-top: 0px; 
+    transition: 0.5s; 
+  }
+
+.nav a:hover {
+    background-color: #5dad97;
+}
+
+.nav a {
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+    text-decoration: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+  }
+
+.main {
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    top: 30px;
+    text-align: right;
+    right: 0px;
+}
+
+.aside-cadastro {
+    height: 240px; 
+    width: 100%; 
+    position: fixed; 
+    top: 40px; 
+    left: 0;
+    background-color: #2f5d62; 
+    padding-top: 0px; 
+    transition: 0.5s; 
+}
+
+.form-cadastro {
+    position: absolute;
+    left: 530px;
+}
+
+@media (max-width: 1200px)
+{
+    .form-cadastro
+    {
+        left: 20%;
+    }
+}
+
+.form-cadastro input, label {
+    display: block;
+    left: 50%;
+    padding: 5px 5px 0px 5px;
+}
+
+#submit {
+    position: relative;
+    width: 70px;
+    margin-top: 30px;
+    left: 50px;
+}
+
+#submit {
+    background-color: #47cccc;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  #submit:hover, #submit:active {
+    background-color: rgb(90, 201, 155);
+  }
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+table {
+    position: absolute;
+    top: 270px;
+    left: 480px;
+}
+
+@media (max-width: 1200px)
+{
+    table
+    {
+        left: 10px;
+    }
+}
+  

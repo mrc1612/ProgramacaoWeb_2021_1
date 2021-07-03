@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" id="page_id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Lanchonete Web - Usu&aacute;rio</title>
+</head>
+<body id="body_id">
+    <p>Layout da sua página: 
+        <select name="layout" id="layout_id" onchange="mudarLayout()">
+        <option value="normal">Normal</option>
+        <option value="custom">Custom</option>
+        </select>
+    </p>
+    
+    <div class="center-main-div">
+        <h1 id="titulo">Lanchonete Web</h1>
+        <form class="center">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome_id">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email_id">
+            <label for="dataNasc">Data de Nascimento:</label>
+            <input type="date" id="dataNasc_id"><br>
+            Receber emails: <input type="checkbox" name="receberemail"id="receberemail_id">
+            <label for="localizacao">Localização:</label>
+            <input type="text" name="localizacao" id="localizacao_id">
+            <a id="submit-button">Salvar</a>
+        </form>  
+    </div> 
+</body>
+    <script>
+        function mudarLayout() {
+            var select = document.getElementById('layout_id')
+            if (select.value == ("normal")) {
+                window.location.reload(true);
+            }
+            if (select.value == ("custom")) {
+                var vetDivs = document.getElementsByTagName('div')
+                for (let i = 0; i < vetDivs.length; i++) {
+                    vetDivs[i].style.background = 'yellow'
+                }
+
+                var vetPs = document.getElementsByTagName('p')
+                for (let i = 0; i < vetPs.length; i++) {
+                    vetPs[i].style.background = 'green'
+                }
+
+                document.getElementById('page_id').style.fontStyle = "italic"
+                document.getElementById('page_id').style.background = '#ffcccc'
+                document.getElementById('body_id').style.background = '#ffcccc'
+            }
+        }
+    </script>
+</html>
