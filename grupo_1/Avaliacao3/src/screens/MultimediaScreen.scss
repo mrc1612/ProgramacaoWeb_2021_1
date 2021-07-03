@@ -1,0 +1,40 @@
+.multimedia-container {
+  display: grid;
+  justify-content: space-around;
+  height: 100%;
+  margin: 3rem;
+  padding-bottom: 12vh;
+
+  .content {
+    width: 1000px;
+    display: grid;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: var(--color-background);
+  }
+
+  hr {
+    width: 100%;
+  }
+
+  .mid-content {
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    padding: 45px 0;
+  }
+
+  #youtube-item {
+    height: 530px;
+    padding-top: 45px;
+  }
+
+  #pdf-item {
+    margin: auto;
+    padding: 45px 0;
+
+    iframe {
+      border: none;
+    }
+  }
+}

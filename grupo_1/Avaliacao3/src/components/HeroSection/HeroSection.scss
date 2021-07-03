@@ -1,0 +1,64 @@
+.hero-content {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-info {
+    position: absolute;
+    top: 30%;
+    z-index: 998;
+    color: var(--color-font-primary);
+    padding: 2rem;
+
+    cursor: default;
+    
+    h1 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        border: none;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-font-primary);
+    }
+}
+
+.hero-link {
+    margin: 0;
+    width: 40%;
+    cursor: pointer;
+
+    a {
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        font-size: 1.3rem;
+
+        color: var(--color-font-primary);
+
+        &:hover {
+            color: var(--color-font-primary-shadow);
+        }
+    }
+
+    h4 {
+        margin: 0 10px 0 0;
+    }
+}
+
