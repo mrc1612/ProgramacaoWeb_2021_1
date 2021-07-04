@@ -168,6 +168,10 @@
     animation-fill-mode: both;
   }
   
+  #TextoAlerta{
+    display: none;
+    color: red;
+  }
   #paracadastro:target ~ .content #cadastro,
   #paralogin:target ~ .content #login{
     z-index: 2;
